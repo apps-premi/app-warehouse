@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Premium MOD App Store - Unlimited APK & Mod Downloads</title>
+    <title>Premium App Store - Unlimited APK & Mod Downloads</title>
     <link rel="icon" type="image/png" href="favicon.png" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,7 +55,6 @@
 
           <!-- Navigasi Kanan (Donate, Contact, Bahasa, Dark/Light Mode) -->
           <div class="flex items-center gap-3">
-            <!-- Ganti link href="#" dengan link Saweria lo yang bener -->
             <a
               href="https://saweria.co/usernamekamu"
               target="_blank"
@@ -63,7 +62,6 @@
               class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
               >Donate</a
             >
-            <!-- Ganti link href="#" dengan kontak lo (misal: https://t.me/ username) -->
             <a
               href="https://t.me/usernamekamu"
               target="_blank"
@@ -74,7 +72,7 @@
 
             <div class="h-4 w-[1px] bg-slate-300 dark:bg-slate-700 mx-1"></div>
 
-            <!-- Dropdown Pilihan Bahasa yang Fungsi -->
+            <!-- Dropdown Pilihan Bahasa -->
             <div class="relative">
               <button
                 id="langBtn"
@@ -182,7 +180,7 @@
         safe, ad-free, and updated daily for phones & Smart TVs.
       </p>
 
-      <!-- Kotak Pencarian Instan (Real-time Search Bar) -->
+      <!-- Kotak Pencarian Instan -->
       <div class="max-w-xl mx-auto mb-8">
         <div
           class="flex items-center bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-indigo-500 focus-within:border-indigo-500 rounded-2xl px-4 py-3 shadow-lg transition duration-200"
@@ -579,9 +577,8 @@
       </svg>
     </a>
 
-    <!-- JavaScript Lengkap: Bahasa Default Inggris, Dropdown, Tema, & Search -->
+    <!-- JavaScript Fixed Dropdown Active State -->
     <script>
-      // Kamus Terjemahan Bahasa (English & Indonesia)
       const translations = {
         en: {
           brand: "Premium App Store",
@@ -615,7 +612,6 @@
         },
       };
 
-      // Fungsi Ganti Bahasa
       function changeLanguage(lang) {
         document.documentElement.lang = lang;
         document.getElementById("brandTitle").innerHTML =
@@ -638,13 +634,11 @@
         document.getElementById("footerText").innerHTML =
           translations[lang].footerText;
 
-        // Update tombol download di card
         document.querySelectorAll(".dl-btn").forEach((btn) => {
           const icon = btn.querySelector("svg").outerHTML;
           btn.innerHTML = icon + " " + translations[lang].downloadBtn;
         });
 
-        // Pindah sorotan warna biru dan tanda centang (✓) yang bener
         const enEl = document.getElementById("btnEn");
         const idEl = document.getElementById("btnId");
 
@@ -667,7 +661,20 @@
         langDropdown.classList.add("hidden");
       }
 
-      // Toggle Dark/Light Mode
+      const langBtn = document.getElementById("langBtn");
+      const langDropdown = document.getElementById("langDropdown");
+
+      langBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle("hidden");
+      });
+
+      window.addEventListener("click", () => {
+        if (!langDropdown.classList.contains("hidden")) {
+          langDropdown.classList.add("hidden");
+        }
+      });
+
       const themeToggle = document.getElementById("themeToggle");
       const htmlElement = document.documentElement;
       const sunIcon = document.getElementById("sunIcon");
@@ -689,7 +696,6 @@
         }
       });
 
-      // Fitur Filter Search Realtime
       const searchInput = document.getElementById("searchInput");
       const appCards = document.querySelectorAll(".app-card");
 
@@ -705,7 +711,6 @@
         });
       });
 
-      // Hapus badge Netlify secara otomatis
       const removeNetlifyBadge = () => {
         const elements = document.querySelectorAll("iframe, a, div");
         elements.forEach((el) => {
