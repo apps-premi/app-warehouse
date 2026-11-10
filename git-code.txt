@@ -1,0 +1,12 @@
+========================================
+ CARA UPDATE WEB GUDANG APK KE GITHUB
+========================================
+Buka terminal di folder Premium-Apps, lalu ketik perintah ini satu per satu (tekan Enter tiap selesai satu baris):
+
+0. cd Premium-Apps
+1. git add .
+2. git commit -m "update web ui terbaru"
+3. git push
+
+Tunggu proses upload selesai, lalu refresh web (Ctrl + F5).
+========================================
