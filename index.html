@@ -53,8 +53,9 @@
             </span>
           </div>
 
-          <!-- Navigasi Kanan (Donate, Contact, Bahasa, Dark/Light Mode) -->
+          <!-- Navigasi Kanan (Donate, Contact Dropdown, Bahasa, Tema) -->
           <div class="flex items-center gap-3">
+            <!-- Shortcut Donate -->
             <a
               href="https://saweria.co/usernamekamu"
               target="_blank"
@@ -62,13 +63,102 @@
               class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
               >Donate</a
             >
-            <a
-              href="https://t.me/usernamekamu"
-              target="_blank"
-              id="navContact"
-              class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition hidden sm:inline"
-              >Contact</a
-            >
+
+            <!-- MENU CONTACT DROPDOWN (Baru) -->
+            <div class="relative">
+              <button
+                id="contactBtn"
+                class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center gap-1 focus:outline-none"
+              >
+                <span id="navContact">Contact</span>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Isi Dropdown Sosmed (Nyusun Menyamping / Horizontal) -->
+              <div
+                id="contactDropdown"
+                class="absolute right-0 mt-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl p-4 hidden z-50 flex-row gap-6"
+              >
+                <!-- Instagram -->
+                <a
+                  href="https://instagram.com/usernamekamu"
+                  target="_blank"
+                  class="group flex flex-col items-center gap-2"
+                >
+                  <svg
+                    class="w-6 h-6 text-pink-500 transition-transform group-hover:scale-110"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                  </svg>
+                  <span
+                    class="text-xs font-medium text-slate-700 dark:text-slate-300 border-b-2 border-transparent group-hover:border-indigo-500 transition-colors pb-0.5"
+                    >Instagram</span
+                  >
+                </a>
+                <!-- Facebook -->
+                <a
+                  href="https://facebook.com/usernamekamu"
+                  target="_blank"
+                  class="group flex flex-col items-center gap-2"
+                >
+                  <svg
+                    class="w-6 h-6 text-blue-500 transition-transform group-hover:scale-110"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                    />
+                  </svg>
+                  <span
+                    class="text-xs font-medium text-slate-700 dark:text-slate-300 border-b-2 border-transparent group-hover:border-indigo-500 transition-colors pb-0.5"
+                    >Facebook</span
+                  >
+                </a>
+                <!-- Telegram -->
+                <a
+                  href="https://t.me/usernamekamu"
+                  target="_blank"
+                  class="group flex flex-col items-center gap-2"
+                >
+                  <svg
+                    class="w-6 h-6 text-sky-400 transition-transform group-hover:scale-110"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"
+                    />
+                  </svg>
+                  <span
+                    class="text-xs font-medium text-slate-700 dark:text-slate-300 border-b-2 border-transparent group-hover:border-indigo-500 transition-colors pb-0.5"
+                    >Telegram</span
+                  >
+                </a>
+              </div>
+            </div>
 
             <div class="h-4 w-[1px] bg-slate-300 dark:bg-slate-700 mx-1"></div>
 
@@ -163,51 +253,27 @@
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-600/20 rounded-full blur-[100px] -z-10"
       ></div>
 
+      <!-- Judul Baru (Premium Apps / Unlimited MOD) -->
       <h1
         id="heroTitle"
         class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight"
       >
-        Download Premium APK <br class="hidden md:block" />
-        <span class="text-indigo-500 dark:text-indigo-400"
-          >& Unlimited Mods</span
-        >
+        Premium Apps <br />
+        <span class="text-indigo-500 dark:text-indigo-400">Unlimited MOD</span>
       </h1>
       <p
         id="heroDesc"
-        class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8"
+        class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10"
       >
         The ultimate repository for VIP, MOD, and premium Android apps. 100%
         safe, ad-free, and updated daily for phones & Smart TVs.
       </p>
 
-      <!-- Kotak Pencarian Instan -->
-      <div class="max-w-xl mx-auto mb-8">
-        <div
-          class="flex items-center bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-indigo-500 focus-within:border-indigo-500 rounded-2xl px-4 py-3 shadow-lg transition duration-200"
-        >
-          <svg
-            class="w-5 h-5 text-slate-400 mr-3 shrink-0"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search application name..."
-            class="w-full bg-transparent text-slate-900 dark:text-slate-200 placeholder-slate-400 focus:outline-none text-sm md:text-base"
-          />
-        </div>
-      </div>
-
+      <!-- Tombol Explore All Apps (Udah dibikin rounded-xl / persegi panjang tumpul) -->
       <a
         href="#apk-list"
         id="exploreBtn"
-        class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(99,102,241,0.4)]"
+        class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-8 rounded-xl transition-all shadow-[0_0_20px_rgba(99,102,241,0.4)]"
       >
         Explore All Apps
         <svg
@@ -225,45 +291,91 @@
       </a>
     </header>
 
-    <!-- Main Content (APK List) -->
+    <!-- Main Content (APK List & Search Bar) -->
     <main
       id="apk-list"
       class="scroll-mt-28 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full"
     >
-      <h2
-        id="listTitle"
-        class="text-2xl font-bold text-slate-900 dark:text-white mb-8 border-l-4 border-indigo-500 pl-3"
+      <!-- Bagian Header List dan Search Bar -->
+      <div
+        class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6"
       >
-        All Applications List
-      </h2>
+        <!-- Judul List & Teks Animasi Bergilir -->
+        <div>
+          <h2
+            class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-3 flex flex-wrap items-center gap-x-2"
+          >
+            <span id="listTitle">List Applications</span>
+            <span
+              id="dynamicText"
+              class="text-indigo-500 dark:text-indigo-400 transition-opacity duration-500"
+              >YouTube</span
+            >
+          </h2>
+        </div>
+
+        <!-- Kotak Pencarian Instan (Pindah ke sini) -->
+        <div class="w-full md:w-80">
+          <div
+            class="flex items-center bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-indigo-500 focus-within:border-indigo-500 rounded-xl px-4 py-3 shadow-sm transition duration-200"
+          >
+            <svg
+              class="w-5 h-5 text-slate-400 mr-3 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <!-- Teks placeholder diubah jadi "Search Apps" -->
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search Apps"
+              class="w-full bg-transparent text-slate-900 dark:text-slate-200 placeholder-slate-400 focus:outline-none text-sm md:text-base"
+            />
+          </div>
+        </div>
+      </div>
 
       <!-- Grid Kartu Ringkas -->
       <div
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         id="appGrid"
       >
-        <!-- APK Card 1 -->
+        <!-- ========================================================================= -->
+        <!-- KARTU APLIKASI 1 -->
+        <!-- PETUNJUK: Copy blok ini dari div "app-card" sampai penutupnya kalau mau nambah APK -->
+        <!-- ========================================================================= -->
         <div
           class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
           <div class="p-5 flex-grow">
             <div class="flex items-start justify-between mb-3">
+              <!-- GANTI GAMBAR: Ubah src="dopaminetv.jpg" pakai nama file logo aplikasi lo -->
               <img
                 src="dopaminetv.jpg"
                 alt="Logo DopamineTV PC"
                 class="w-12 h-12 rounded-xl object-cover shadow-md transition-transform duration-300 group-hover:scale-105"
               />
+              <!-- GANTI VERSI: Tulis versi aplikasinya di bawah ini -->
               <span
                 class="bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-green-500/30"
                 >v1.0.6 Trial-30D</span
               >
             </div>
+
+            <!-- GANTI NAMA APLIKASI: Tulis nama gamenya / aplikasinya di sini -->
             <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">
               DopamineTV PC
             </h3>
+
             <div
               class="flex gap-2 text-xs font-medium text-slate-500 dark:text-slate-400"
             >
+              <!-- GANTI UKURAN & OS -->
               <span
                 class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
                 >Size: 10MB</span
@@ -274,13 +386,16 @@
               >
             </div>
           </div>
+
           <div
             class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl"
           >
+            <!-- GANTI LINK DOWNLOAD: Masukin link Safelinku lo di dalam tanda kutip href="..." -->
+            <!-- BUG WARNA FIX: Background sekarang ungu solid pakai bg-indigo-600 -->
             <a
               href="https://sfl.gl/SJbUzcG"
               target="_blank"
-              class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
+              class="dl-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -300,8 +415,9 @@
             </a>
           </div>
         </div>
+        <!-- ================= END KARTU APLIKASI 1 ================= -->
 
-        <!-- APK Card 2 -->
+        <!-- ================= KARTU APLIKASI 2 ================= -->
         <div
           class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
@@ -336,10 +452,11 @@
           <div
             class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl"
           >
+            <!-- Link Safelinku Card 2 -->
             <a
               href="https://sfl.gl/d1J7"
               target="_blank"
-              class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
+              class="dl-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -360,7 +477,7 @@
           </div>
         </div>
 
-        <!-- Apk Card 3 -->
+        <!-- ================= KARTU APLIKASI 3 ================= -->
         <div
           class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
@@ -395,10 +512,11 @@
           <div
             class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl"
           >
+            <!-- Link Safelinku Card 3 -->
             <a
               href="https://sfl.gl/f02go"
               target="_blank"
-              class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
+              class="dl-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -419,7 +537,7 @@
           </div>
         </div>
 
-        <!-- Apk Card 4 -->
+        <!-- ================= KARTU APLIKASI 4 ================= -->
         <div
           class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
@@ -454,10 +572,11 @@
           <div
             class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl"
           >
+            <!-- Link Safelinku Card 4 -->
             <a
               href="https://sfl.gl/YFpxd"
               target="_blank"
-              class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
+              class="dl-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -478,7 +597,7 @@
           </div>
         </div>
 
-        <!-- Apk Card 5 -->
+        <!-- ================= KARTU APLIKASI 5 ================= -->
         <div
           class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
@@ -513,10 +632,11 @@
           <div
             class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl"
           >
+            <!-- Link Safelinku Card 5 -->
             <a
               href="https://sfl.gl/F10oT"
               target="_blank"
-              class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
+              class="dl-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -577,20 +697,21 @@
       </svg>
     </a>
 
-    <!-- JavaScript Fixed Dropdown Active State -->
+    <!-- JavaScript Komplit -->
     <script>
+      // 1. DATA TERJEMAHAN BAHASA
       const translations = {
         en: {
           brand: "Premium App Store",
           donate: "Donate",
           contact: "Contact",
           heroTitle:
-            'Download Premium APK <br class="hidden md:block" /><span class="text-indigo-500 dark:text-indigo-400">& Unlimited Mods</span>',
+            'Premium Apps <br /><span class="text-indigo-500 dark:text-indigo-400">Unlimited MOD</span>',
           heroDesc:
             "The ultimate repository for VIP, MOD, and premium Android apps. 100% safe, ad-free, and updated daily for phones & Smart TVs.",
-          searchPlaceholder: "Search application name...",
+          searchPlaceholder: "Search Apps",
           explore: "Explore All Apps",
-          listTitle: "All Applications List",
+          listTitle: "List Applications",
           downloadBtn: "Download APK",
           footerText:
             '&copy; 2026 Premium App Store. All rights reserved.<br /><span class="text-xs mt-2 block">Disclaimer: This website only shares third-party APK files for educational, testing, and review purposes. All copyrights and trademarks belong to their respective developers.</span>',
@@ -600,18 +721,19 @@
           donate: "Donasi",
           contact: "Kontak",
           heroTitle:
-            'Download APK Premium <br class="hidden md:block" /><span class="text-indigo-500 dark:text-indigo-400">& Mod Tanpa Batas</span>',
+            'Aplikasi Premium <br /><span class="text-indigo-500 dark:text-indigo-400">MOD Tanpa Batas</span>',
           heroDesc:
             "Pusat download aplikasi Android VIP, MOD, dan premium terlengkap. 100% aman, bebas iklan, dan update setiap hari untuk HP serta Smart TV.",
-          searchPlaceholder: "Cari nama aplikasi...",
+          searchPlaceholder: "Cari Aplikasi",
           explore: "Jelajahi Semua APK",
-          listTitle: "List Semua Aplikasi",
+          listTitle: "Daftar Aplikasi",
           downloadBtn: "Download APK",
           footerText:
             '&copy; 2026 Gudang Aplikasi Premium MOD. Hak cipta dilindungi.<br /><span class="text-xs mt-2 block">Disclaimer: Web ini hanya membagikan ulang file APK pihak ketiga untuk tujuan edukasi, pengujian, dan ulasan aplikasi. Seluruh hak cipta dan merek dagang aplikasi tetap milik developer masing-masing.</span>',
         },
       };
 
+      // 2. FUNGSI GANTI BAHASA
       function changeLanguage(lang) {
         document.documentElement.lang = lang;
         document.getElementById("brandTitle").innerHTML =
@@ -657,24 +779,60 @@
           document.getElementById("checkId").classList.remove("hidden");
           document.getElementById("checkEn").classList.add("hidden");
         }
-
         langDropdown.classList.add("hidden");
       }
 
+      // 3. FUNGSI DROPDOWN BAHASA & CONTACT
       const langBtn = document.getElementById("langBtn");
       const langDropdown = document.getElementById("langDropdown");
+      const contactBtn = document.getElementById("contactBtn");
+      const contactDropdown = document.getElementById("contactDropdown");
 
       langBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         langDropdown.classList.toggle("hidden");
+        contactDropdown.classList.add("hidden"); // Tutup menu kontak kalo lagi buka bahasa
+      });
+
+      contactBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        contactDropdown.classList.toggle("hidden");
+        contactDropdown.classList.toggle("flex");
+        langDropdown.classList.add("hidden"); // Tutup menu bahasa kalo lagi buka kontak
       });
 
       window.addEventListener("click", () => {
         if (!langDropdown.classList.contains("hidden")) {
           langDropdown.classList.add("hidden");
         }
+        if (!contactDropdown.classList.contains("hidden")) {
+          contactDropdown.classList.add("hidden");
+          contactDropdown.classList.remove("flex");
+        }
       });
 
+      // 4. TEKS BERGILIR OTOMATIS (5 DETIK)
+      const appsListText = [
+        "YouTube",
+        "YT Music",
+        "Facebook",
+        "Instagram",
+        "Telegram",
+        "Twitter",
+      ];
+      let appTextIndex = 0;
+      const dynamicTextEl = document.getElementById("dynamicText");
+
+      setInterval(() => {
+        dynamicTextEl.style.opacity = "0"; // Hilang pelan
+        setTimeout(() => {
+          appTextIndex = (appTextIndex + 1) % appsListText.length;
+          dynamicTextEl.innerText = appsListText[appTextIndex];
+          dynamicTextEl.style.opacity = "1"; // Muncul pelan
+        }, 500); // Waktu ganti teks pas lagi hilang
+      }, 5000); // Eksekusi muter teks tiap 5 detik
+
+      // 5. DARK MODE TOGGLE
       const themeToggle = document.getElementById("themeToggle");
       const htmlElement = document.documentElement;
       const sunIcon = document.getElementById("sunIcon");
@@ -696,6 +854,7 @@
         }
       });
 
+      // 6. FITUR PENCARIAN REAL-TIME
       const searchInput = document.getElementById("searchInput");
       const appCards = document.querySelectorAll(".app-card");
 
@@ -711,6 +870,7 @@
         });
       });
 
+      // 7. CLEANUP WATERMARK NETLIFY
       const removeNetlifyBadge = () => {
         const elements = document.querySelectorAll("iframe, a, div");
         elements.forEach((el) => {
