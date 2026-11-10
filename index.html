@@ -64,26 +64,13 @@
               >Donate</a
             >
 
-            <!-- MENU CONTACT DROPDOWN (Baru) -->
+            <!-- MENU CONTACT DROPDOWN (Fixed Tanpa Panah) -->
             <div class="relative">
               <button
                 id="contactBtn"
                 class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center gap-1 focus:outline-none"
               >
                 <span id="navContact">Contact</span>
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
-                </svg>
               </button>
 
               <!-- Isi Dropdown Sosmed (Nyusun Menyamping / Horizontal) -->
@@ -269,7 +256,7 @@
         safe, ad-free, and updated daily for phones & Smart TVs.
       </p>
 
-      <!-- Tombol Explore All Apps (Udah dibikin rounded-xl / persegi panjang tumpul) -->
+      <!-- Tombol Explore All Apps -->
       <a
         href="#apk-list"
         id="exploreBtn"
@@ -314,7 +301,7 @@
           </h2>
         </div>
 
-        <!-- Kotak Pencarian Instan (Pindah ke sini) -->
+        <!-- Kotak Pencarian Instan -->
         <div class="w-full md:w-80">
           <div
             class="flex items-center bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-indigo-500 focus-within:border-indigo-500 rounded-xl px-4 py-3 shadow-sm transition duration-200"
@@ -329,7 +316,6 @@
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <!-- Teks placeholder diubah jadi "Search Apps" -->
             <input
               type="text"
               id="searchInput"
@@ -391,7 +377,6 @@
             class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl"
           >
             <!-- GANTI LINK DOWNLOAD: Masukin link Safelinku lo di dalam tanda kutip href="..." -->
-            <!-- BUG WARNA FIX: Background sekarang ungu solid pakai bg-indigo-600 -->
             <a
               href="https://sfl.gl/SJbUzcG"
               target="_blank"
@@ -791,14 +776,14 @@
       langBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         langDropdown.classList.toggle("hidden");
-        contactDropdown.classList.add("hidden"); // Tutup menu kontak kalo lagi buka bahasa
+        contactDropdown.classList.add("hidden");
       });
 
       contactBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         contactDropdown.classList.toggle("hidden");
         contactDropdown.classList.toggle("flex");
-        langDropdown.classList.add("hidden"); // Tutup menu bahasa kalo lagi buka kontak
+        langDropdown.classList.add("hidden");
       });
 
       window.addEventListener("click", () => {
@@ -824,13 +809,13 @@
       const dynamicTextEl = document.getElementById("dynamicText");
 
       setInterval(() => {
-        dynamicTextEl.style.opacity = "0"; // Hilang pelan
+        dynamicTextEl.style.opacity = "0";
         setTimeout(() => {
           appTextIndex = (appTextIndex + 1) % appsListText.length;
           dynamicTextEl.innerText = appsListText[appTextIndex];
-          dynamicTextEl.style.opacity = "1"; // Muncul pelan
-        }, 500); // Waktu ganti teks pas lagi hilang
-      }, 5000); // Eksekusi muter teks tiap 5 detik
+          dynamicTextEl.style.opacity = "1";
+        }, 500);
+      }, 5000);
 
       // 5. DARK MODE TOGGLE
       const themeToggle = document.getElementById("themeToggle");
