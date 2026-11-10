@@ -101,12 +101,14 @@
               >
                 <button
                   onclick="changeLanguage('en')"
+                  id="btnEn"
                   class="w-full text-left flex items-center justify-between px-4 py-2 text-sm text-indigo-600 dark:text-indigo-400 font-semibold bg-slate-100 dark:bg-slate-700/50"
                 >
                   <span>English</span> <span id="checkEn">✓</span>
                 </button>
                 <button
                   onclick="changeLanguage('id')"
+                  id="btnId"
                   class="w-full text-left flex items-center justify-between px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
                 >
                   <span>Bahasa Indonesia</span>
@@ -642,32 +644,28 @@
           btn.innerHTML = icon + " " + translations[lang].downloadBtn;
         });
 
-        // Tanda centang di dropdown
+        // Pindah sorotan warna biru dan tanda centang (✓) yang bener
+        const enEl = document.getElementById("btnEn");
+        const idEl = document.getElementById("btnId");
+
         if (lang === "en") {
+          enEl.className =
+            "w-full text-left flex items-center justify-between px-4 py-2 text-sm text-indigo-600 dark:text-indigo-400 font-semibold bg-slate-100 dark:bg-slate-700/50";
+          idEl.className =
+            "w-full text-left flex items-center justify-between px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700";
           document.getElementById("checkEn").classList.remove("hidden");
           document.getElementById("checkId").classList.add("hidden");
         } else {
-          document.getElementById("checkEn").classList.add("hidden");
+          idEl.className =
+            "w-full text-left flex items-center justify-between px-4 py-2 text-sm text-indigo-600 dark:text-indigo-400 font-semibold bg-slate-100 dark:bg-slate-700/50";
+          enEl.className =
+            "w-full text-left flex items-center justify-between px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700";
           document.getElementById("checkId").classList.remove("hidden");
+          document.getElementById("checkEn").classList.add("hidden");
         }
 
         langDropdown.classList.add("hidden");
       }
-
-      // Toggle Dropdown Bahasa
-      const langBtn = document.getElementById("langBtn");
-      const langDropdown = document.getElementById("langDropdown");
-
-      langBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        langDropdown.classList.toggle("hidden");
-      });
-
-      window.addEventListener("click", () => {
-        if (!langDropdown.classList.contains("hidden")) {
-          langDropdown.classList.add("hidden");
-        }
-      });
 
       // Toggle Dark/Light Mode
       const themeToggle = document.getElementById("themeToggle");
