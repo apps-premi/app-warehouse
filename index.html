@@ -1,11 +1,9 @@
 <!doctype html>
-<html lang="id" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Gudang Aplikasi Premium MOD - Download APK Premium & Mod Tanpa Batas
-    </title>
+    <title>Premium MOD App Store - Unlimited APK & Mod Downloads</title>
     <link rel="icon" type="image/png" href="favicon.png" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -48,33 +46,40 @@
               class="w-10 h-10 rounded-xl object-cover shadow-md"
             />
             <span
+              id="brandTitle"
               class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-cyan-500 dark:from-indigo-400 dark:to-cyan-400 hidden sm:inline"
             >
-              Gudang Aplikasi Premium MOD
+              Premium App Store
             </span>
           </div>
 
           <!-- Navigasi Kanan (Donate, Contact, Bahasa, Dark/Light Mode) -->
           <div class="flex items-center gap-3">
+            <!-- Ganti link href="#" dengan link Saweria lo yang bener -->
             <a
-              href="#donate-section"
+              href="https://saweria.co/usernamekamu"
+              target="_blank"
+              id="navDonate"
               class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
               >Donate</a
             >
+            <!-- Ganti link href="#" dengan kontak lo (misal: https://t.me/ username) -->
             <a
-              href="#footer-section"
+              href="https://t.me/usernamekamu"
+              target="_blank"
+              id="navContact"
               class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition hidden sm:inline"
               >Contact</a
             >
 
             <div class="h-4 w-[1px] bg-slate-300 dark:bg-slate-700 mx-1"></div>
 
-            <!-- Dropdown Pilihan Bahasa -->
+            <!-- Dropdown Pilihan Bahasa yang Fungsi -->
             <div class="relative">
               <button
                 id="langBtn"
                 class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition flex items-center justify-center text-slate-700 dark:text-slate-300 shadow-inner"
-                title="Pilih Bahasa"
+                title="Select Language"
               >
                 <svg
                   class="w-5 h-5"
@@ -94,26 +99,19 @@
                 id="langDropdown"
                 class="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-2xl py-2 hidden z-50"
               >
-                <a
-                  href="#"
-                  class="flex items-center justify-between px-4 py-2 text-sm text-indigo-600 dark:text-indigo-400 font-semibold bg-slate-100 dark:bg-slate-700/50"
-                  ><span>English</span> <span>✓</span></a
+                <button
+                  onclick="changeLanguage('en')"
+                  class="w-full text-left flex items-center justify-between px-4 py-2 text-sm text-indigo-600 dark:text-indigo-400 font-semibold bg-slate-100 dark:bg-slate-700/50"
                 >
-                <a
-                  href="#"
-                  class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
-                  >Bahasa Indonesia</a
+                  <span>English</span> <span id="checkEn">✓</span>
+                </button>
+                <button
+                  onclick="changeLanguage('id')"
+                  class="w-full text-left flex items-center justify-between px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
                 >
-                <a
-                  href="#"
-                  class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
-                  >Español</a
-                >
-                <a
-                  href="#"
-                  class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
-                  >Deutsch</a
-                >
+                  <span>Bahasa Indonesia</span>
+                  <span id="checkId" class="hidden">✓</span>
+                </button>
               </div>
             </div>
 
@@ -121,7 +119,7 @@
             <button
               id="themeToggle"
               class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition flex items-center justify-center text-slate-700 dark:text-yellow-400 shadow-inner"
-              title="Ganti Mode Terang/Gelap"
+              title="Toggle Theme"
             >
               <svg
                 id="sunIcon"
@@ -166,18 +164,20 @@
       ></div>
 
       <h1
+        id="heroTitle"
         class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight"
       >
-        Download APK Premium <br class="hidden md:block" />
+        Download Premium APK <br class="hidden md:block" />
         <span class="text-indigo-500 dark:text-indigo-400"
-          >& Mod Tanpa Batas</span
+          >& Unlimited Mods</span
         >
       </h1>
       <p
+        id="heroDesc"
         class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8"
       >
-        Pusat download aplikasi Android VIP, MOD, dan premium terlengkap. 100%
-        aman, bebas iklan, dan update setiap hari untuk HP serta Smart TV
+        The ultimate repository for VIP, MOD, and premium Android apps. 100%
+        safe, ad-free, and updated daily for phones & Smart TVs.
       </p>
 
       <!-- Kotak Pencarian Instan (Real-time Search Bar) -->
@@ -198,7 +198,7 @@
           <input
             type="text"
             id="searchInput"
-            placeholder="Cari nama aplikasi..."
+            placeholder="Search application name..."
             class="w-full bg-transparent text-slate-900 dark:text-slate-200 placeholder-slate-400 focus:outline-none text-sm md:text-base"
           />
         </div>
@@ -206,9 +206,10 @@
 
       <a
         href="#apk-list"
+        id="exploreBtn"
         class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(99,102,241,0.4)]"
       >
-        Jelajahi Semua APK
+        Explore All Apps
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
@@ -230,9 +231,10 @@
       class="scroll-mt-28 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full"
     >
       <h2
+        id="listTitle"
         class="text-2xl font-bold text-slate-900 dark:text-white mb-8 border-l-4 border-indigo-500 pl-3"
       >
-        List Semua Aplikasi
+        All Applications List
       </h2>
 
       <!-- Grid Kartu Ringkas -->
@@ -240,7 +242,7 @@
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         id="appGrid"
       >
-        <!-- APK Card 1 (DopamineTV PC) -->
+        <!-- APK Card 1 -->
         <div
           class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
@@ -253,9 +255,8 @@
               />
               <span
                 class="bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-green-500/30"
+                >v1.0.6 Trial-30D</span
               >
-                v1.0.6 Trial-30D
-              </span>
             </div>
             <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">
               DopamineTV PC
@@ -279,7 +280,7 @@
             <a
               href="https://sfl.gl/SJbUzcG"
               target="_blank"
-              class="w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
+              class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -300,7 +301,7 @@
           </div>
         </div>
 
-        <!-- APK Card 2 (DopamineTV) -->
+        <!-- APK Card 2 -->
         <div
           class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
@@ -313,9 +314,8 @@
               />
               <span
                 class="bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-green-500/30"
+                >v1.0.8 Build 12</span
               >
-                v1.0.8 Build 12
-              </span>
             </div>
             <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">
               DopamineTV
@@ -339,7 +339,7 @@
             <a
               href="https://sfl.gl/d1J7"
               target="_blank"
-              class="w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
+              class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -360,7 +360,7 @@
           </div>
         </div>
 
-        <!-- Apk Card 3 (Kltratv Hikari) -->
+        <!-- Apk Card 3 -->
         <div
           class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
@@ -373,9 +373,8 @@
               />
               <span
                 class="bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-green-500/30"
+                >v3.1.1 Free</span
               >
-                v3.1.1 Free
-              </span>
             </div>
             <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">
               KltraTV Hikari
@@ -399,7 +398,7 @@
             <a
               href="https://sfl.gl/f02go"
               target="_blank"
-              class="w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
+              class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -420,7 +419,7 @@
           </div>
         </div>
 
-        <!-- Apk Card 4 (TivoraTV) -->
+        <!-- Apk Card 4 -->
         <div
           class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
@@ -433,9 +432,8 @@
               />
               <span
                 class="bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-green-500/30"
+                >v1.2 Premium</span
               >
-                v1.2 Premium
-              </span>
             </div>
             <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">
               TivoraTV
@@ -459,7 +457,7 @@
             <a
               href="https://sfl.gl/YFpxd"
               target="_blank"
-              class="w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
+              class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -480,7 +478,7 @@
           </div>
         </div>
 
-        <!-- Apk Card 5 (YouTube Premium) -->
+        <!-- Apk Card 5 -->
         <div
           class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
@@ -493,9 +491,8 @@
               />
               <span
                 class="bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-green-500/30"
+                >v21.30.216</span
               >
-                v21.30.216
-              </span>
             </div>
             <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">
               YouTube Premium
@@ -519,7 +516,7 @@
             <a
               href="https://sfl.gl/F10oT"
               target="_blank"
-              class="w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
+              class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 text-slate-800 hover:text-white dark:text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-sm"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -542,78 +539,17 @@
       </div>
     </main>
 
-    <!-- Donation Section -->
-    <section
-      id="donate-section"
-      class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full scroll-mt-24"
-    >
-      <div
-        class="bg-gradient-to-r from-amber-600 to-orange-500 rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden"
-      >
-        <div class="text-center md:text-left relative z-10">
-          <h2
-            class="text-3xl font-extrabold text-white mb-2 flex items-center justify-center md:justify-start gap-2"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 text-yellow-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            Dukung Server Tetap Hidup!
-          </h2>
-          <p class="text-amber-100 text-lg">
-            Suka dengan aplikasi gratisan di sini? Bantu admin bayar server web
-            dengan traktir segelas kopi biar rajin update APK terbaru.
-          </p>
-        </div>
-
-        <div class="relative z-10 w-full md:w-auto flex-shrink-0">
-          <a
-            href="#"
-            class="block w-full bg-white text-orange-600 hover:bg-yellow-100 hover:scale-105 font-bold text-lg py-4 px-8 rounded-full transition-all shadow-lg flex items-center justify-center gap-3"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-              />
-            </svg>
-            Traktir via Saweria
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- Footer -->
     <footer
-      id="footer-section"
       class="bg-white dark:bg-slate-950 py-8 border-t border-slate-200 dark:border-slate-800 mt-auto transition-colors duration-300"
     >
       <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-slate-500 text-sm">
-          &copy; 2026 Gudang Aplikasi Premium MOD. All rights reserved.<br />
+        <p id="footerText" class="text-slate-500 text-sm">
+          &copy; 2026 Premium App Store. All rights reserved.<br />
           <span class="text-xs mt-2 block"
-            >Disclaimer: Web ini hanya membagikan ulang file APK pihak ketiga
-            untuk tujuan edukasi, pengujian, dan ulasan aplikasi. Seluruh hak
-            cipta dan merek dagang aplikasi tetap menjadi milik developer
-            masing-masing.
+            >Disclaimer: This website only shares third-party APK files for
+            educational, testing, and review purposes. All copyrights and
+            trademarks belong to their respective developers.
           </span>
         </p>
       </div>
@@ -623,7 +559,7 @@
     <a
       href="#"
       class="fixed bottom-6 right-6 z-50 bg-indigo-600 hover:bg-indigo-500 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group"
-      title="Kembali ke atas"
+      title="Back to top"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -641,8 +577,83 @@
       </svg>
     </a>
 
-    <!-- JavaScript Gabungan (Tema, Search, & Dropdown Bahasa) -->
+    <!-- JavaScript Lengkap: Bahasa Default Inggris, Dropdown, Tema, & Search -->
     <script>
+      // Kamus Terjemahan Bahasa (English & Indonesia)
+      const translations = {
+        en: {
+          brand: "Premium App Store",
+          donate: "Donate",
+          contact: "Contact",
+          heroTitle:
+            'Download Premium APK <br class="hidden md:block" /><span class="text-indigo-500 dark:text-indigo-400">& Unlimited Mods</span>',
+          heroDesc:
+            "The ultimate repository for VIP, MOD, and premium Android apps. 100% safe, ad-free, and updated daily for phones & Smart TVs.",
+          searchPlaceholder: "Search application name...",
+          explore: "Explore All Apps",
+          listTitle: "All Applications List",
+          downloadBtn: "Download APK",
+          footerText:
+            '&copy; 2026 Premium App Store. All rights reserved.<br /><span class="text-xs mt-2 block">Disclaimer: This website only shares third-party APK files for educational, testing, and review purposes. All copyrights and trademarks belong to their respective developers.</span>',
+        },
+        id: {
+          brand: "Gudang Aplikasi Premium MOD",
+          donate: "Donasi",
+          contact: "Kontak",
+          heroTitle:
+            'Download APK Premium <br class="hidden md:block" /><span class="text-indigo-500 dark:text-indigo-400">& Mod Tanpa Batas</span>',
+          heroDesc:
+            "Pusat download aplikasi Android VIP, MOD, dan premium terlengkap. 100% aman, bebas iklan, dan update setiap hari untuk HP serta Smart TV.",
+          searchPlaceholder: "Cari nama aplikasi...",
+          explore: "Jelajahi Semua APK",
+          listTitle: "List Semua Aplikasi",
+          downloadBtn: "Download APK",
+          footerText:
+            '&copy; 2026 Gudang Aplikasi Premium MOD. Hak cipta dilindungi.<br /><span class="text-xs mt-2 block">Disclaimer: Web ini hanya membagikan ulang file APK pihak ketiga untuk tujuan edukasi, pengujian, dan ulasan aplikasi. Seluruh hak cipta dan merek dagang aplikasi tetap milik developer masing-masing.</span>',
+        },
+      };
+
+      // Fungsi Ganti Bahasa
+      function changeLanguage(lang) {
+        document.documentElement.lang = lang;
+        document.getElementById("brandTitle").innerHTML =
+          translations[lang].brand;
+        document.getElementById("navDonate").innerText =
+          translations[lang].donate;
+        document.getElementById("navContact").innerText =
+          translations[lang].contact;
+        document.getElementById("heroTitle").innerHTML =
+          translations[lang].heroTitle;
+        document.getElementById("heroDesc").innerText =
+          translations[lang].heroDesc;
+        document.getElementById("searchInput").placeholder =
+          translations[lang].searchPlaceholder;
+        document.getElementById("exploreBtn").innerHTML =
+          translations[lang].explore +
+          ' <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>';
+        document.getElementById("listTitle").innerText =
+          translations[lang].listTitle;
+        document.getElementById("footerText").innerHTML =
+          translations[lang].footerText;
+
+        // Update tombol download di card
+        document.querySelectorAll(".dl-btn").forEach((btn) => {
+          const icon = btn.querySelector("svg").outerHTML;
+          btn.innerHTML = icon + " " + translations[lang].downloadBtn;
+        });
+
+        // Tanda centang di dropdown
+        if (lang === "en") {
+          document.getElementById("checkEn").classList.remove("hidden");
+          document.getElementById("checkId").classList.add("hidden");
+        } else {
+          document.getElementById("checkEn").classList.add("hidden");
+          document.getElementById("checkId").classList.remove("hidden");
+        }
+
+        langDropdown.classList.add("hidden");
+      }
+
       // Toggle Dropdown Bahasa
       const langBtn = document.getElementById("langBtn");
       const langDropdown = document.getElementById("langDropdown");
