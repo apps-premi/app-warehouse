@@ -220,37 +220,21 @@
         safe, ad-free, and updated daily for phones & Smart TVs.
       </p>
 
-      <!-- Tombol Aksi (Explore All Apps & Donate Kapsul) -->
-      <div class="flex items-center justify-center gap-3">
+      <!-- Tombol Aksi (Explore & Support Me dengan Animasi Seragam) -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+        <!-- Tombol Explore All Apps (Animasi Naik Turun Kontinyu & Hover Ngangkat) -->
         <a
           href="#apk-list"
           id="exploreBtn"
-          class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-8 rounded-xl transition-all shadow-[0_0_20px_rgba(99,102,241,0.4)]"
+          class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-500/25 transition-all duration-300 transform hover:-translate-y-1 gap-2 group"
         >
-          Explore All Apps
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
+          <span
+            id="exploreText"
+            class="transition-transform duration-300 group-hover:-translate-y-0.5"
+            >Explore All Apps</span
           >
-            <path
-              fill-rule="evenodd"
-              d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </a>
-
-        <!-- Tombol Support Me (Kapsul dengan Efek Glow & Warna Hover Seragam) -->
-        <a
-          href="https://saweria.co/kyyshee"
-          target="_blank"
-          id="donateBtn"
-          class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-500/25 transition-all duration-300 transform hover:-translate-y-0.5 gap-2"
-        >
           <svg
-            class="w-5 h-5"
+            class="w-5 h-5 animate-bounce"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
@@ -259,8 +243,26 @@
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
             ></path>
+          </svg>
+        </a>
+
+        <!-- Tombol Support Me (Hover Ngangkat & Ikon/Teks Berdenyut Halus) -->
+        <a
+          href="https://saweria.co/kyyshee"
+          target="_blank"
+          id="donateBtn"
+          class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-500/25 transition-all duration-300 transform hover:-translate-y-1 gap-2 group"
+        >
+          <svg
+            class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-pink-400"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+            />
           </svg>
           <span id="donateText">Support Me</span>
         </a>
