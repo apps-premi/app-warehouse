@@ -881,28 +881,37 @@
         }
       });
 
-      // 6. FITUR PENCARIAN REAL-TIME (DENGAN INDIKATOR NOT AVAILABLE)
+      // 6. FITUR PENCARIAN REAL-TIME (DENGAN INDIKATOR NOT AVAILABLE & AUTO TRANSLATE)
       const searchInput = document.getElementById("searchInput");
       const appCards = document.querySelectorAll(".app-card");
-      const noResultEl = document.getElementById("noResult"); // Elemen notifikasi tidak ketemu
+      const noResultEl = document.getElementById("noResult");
 
       searchInput.addEventListener("input", (e) => {
         const term = e.target.value.toLowerCase();
-        let visibleCount = 0; // Hitung jumlah aplikasi yang cocok
+        let visibleCount = 0;
 
         appCards.forEach((card) => {
           const text = card.innerText.toLowerCase();
           if (text.includes(term)) {
             card.style.display = "flex";
-            visibleCount++; // Tambah 1 kalau ketemu
+            visibleCount++;
           } else {
             card.style.display = "none";
           }
         });
 
-        // Kalau tidak ada satupun aplikasi yang tampil, munculkan tulisan "Not Available"
+        // Logika memunculkan teks "Not Available" sekaligus auto-translate
         if (visibleCount === 0) {
           noResultEl.classList.remove("hidden");
+
+          // AMBIL BAHASA YANG LAGI AKTIF SAAT INI (EN / ID)
+          const currentLang = document.documentElement.lang || "en";
+
+          // PAKSA TEXT-NYA BERUBAH SESUAI BAHASA YANG SEDANG AKTIF
+          document.getElementById("notAvailableText").innerText =
+            translations[currentLang].notAvailable;
+          document.getElementById("notAvailableDesc").innerText =
+            translations[currentLang].notAvailableDesc;
         } else {
           noResultEl.classList.add("hidden");
         }
