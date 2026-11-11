@@ -975,16 +975,19 @@
         }
       });
 
-      // 7. EFEK MUNCUL SAAT DI-SCROLL (SCROLL ANIMATION)
+      // 7. EFEK MUNCUL SAAT DI-SCROLL (BERULANG / RE-ANIMATE)
       const scrollObserverOptions = {
         threshold: 0.1,
       };
 
-      const scrollObserver = new IntersectionObserver((entries, observer) => {
+      const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            // Kalau kartu masuk layar: hilangkan kelas transparan (muncul)
             entry.target.classList.remove("opacity-0", "translate-y-6");
-            observer.unobserve(entry.target);
+          } else {
+            // Kalau kartu keluar layar (disaroll ke atas): balikin lagi ke posisi awal transparan
+            entry.target.classList.add("opacity-0", "translate-y-6");
           }
         });
       }, scrollObserverOptions);
