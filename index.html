@@ -292,6 +292,27 @@
           </h2>
         </div>
 
+        <!-- Kotak Iklan Banner -->
+        <!--
+        <div
+          class="w-full bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 rounded-xl p-3 mb-8 flex flex-col items-center justify-center min-h-[250px] text-center overflow-hidden"
+        >
+          <span class="text-[10px] uppercase tracking-wider text-slate-400 mb-1"
+            >Advertisement</span
+          >
+          <script>
+            atOptions = {
+              key: "6b91426f71517355ed13214cbca857f9",
+              format: "iframe",
+              height: 250,
+              width: 300,
+              params: {},
+            };
+          </script>
+          <script src="https://bellnewyork.org/22/6b91426f71517355ed13214cbca857f9"></script>
+        </div>
+          -->
+
         <!-- Kotak Pencarian Instan -->
         <div class="w-full md:w-80">
           <div
@@ -317,70 +338,61 @@
         </div>
       </div>
 
-      <!-- Grid Kartu Ringkas (Glassmorphism / Liquid Glass Effect) -->
+      <!-- Grid Kartu Ringkas -->
       <div
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         id="appGrid"
       >
-        <!-- ================= KARTU APLIKASI 1 ================= -->
+        <!-- ========================================================================= -->
+        <!-- KARTU APLIKASI 1 -->
+        <!-- PETUNJUK: Copy blok ini dari div "app-card" sampai penutupnya kalau mau nambah APK -->
+        <!-- ========================================================================= -->
         <div
-          class="app-card relative group bg-white/20 dark:bg-slate-800/30 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-2xl flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgb(0,0,0,0.2)]"
+          class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
-          <!-- Rating Bintang -->
-          <div
-            class="absolute top-4 right-4 flex items-center bg-black/5 dark:bg-black/40 rounded-full px-2 py-0.5 backdrop-blur-md border border-white/20"
-          >
-            <svg
-              class="w-3.5 h-3.5 text-yellow-400 mr-1"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-              ></path>
-            </svg>
-            <span class="text-xs font-bold text-slate-700 dark:text-white"
-              >4.8</span
-            >
-          </div>
-
-          <div class="p-5 flex-grow mt-2">
+          <div class="p-5 flex-grow">
             <div class="flex items-start justify-between mb-3">
+              <!-- GANTI GAMBAR: Ubah src="dopaminetv.jpg" pakai nama file logo aplikasi lo -->
               <img
                 src="dopaminetv.jpg"
                 alt="Logo DopamineTV PC"
                 class="w-12 h-12 rounded-xl object-cover shadow-md transition-transform duration-300 group-hover:scale-105"
               />
+              <!-- GANTI VERSI: Tulis versi aplikasinya di bawah ini -->
               <span
                 class="bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-green-500/30"
                 >v1.0.6 Trial-30D</span
               >
             </div>
+
+            <!-- GANTI NAMA APLIKASI: Tulis nama gamenya / aplikasinya di sini -->
             <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">
               DopamineTV PC
             </h3>
+
             <div
-              class="flex gap-2 text-xs font-medium text-slate-600 dark:text-slate-300"
+              class="flex gap-2 text-xs font-medium text-slate-500 dark:text-slate-400"
             >
+              <!-- GANTI UKURAN & OS -->
               <span
-                class="bg-white/40 dark:bg-slate-900/50 backdrop-blur-sm px-2.5 py-1 rounded-md"
+                class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
                 >Size: 10MB</span
               >
               <span
-                class="bg-white/40 dark:bg-slate-900/50 backdrop-blur-sm px-2.5 py-1 rounded-md"
+                class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
                 >Windows 10-x64</span
               >
             </div>
           </div>
+
           <div
-            class="p-4 border-t border-white/20 dark:border-white/10 bg-white/10 dark:bg-black/10"
+            class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl"
           >
-            <!-- Ditambahkan onclick="showToast('Menyiapkan file APK...')" -->
+            <!-- GANTI LINK DOWNLOAD: Masukin link Safelinku lo di dalam tanda kutip href="..." -->
             <a
               href="https://sfl.gl/SJbUzcG"
               target="_blank"
-              onclick="showToast('Menyiapkan file APK...')"
-              class="dl-btn w-full bg-indigo-600/90 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
+              class="dl-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -400,30 +412,13 @@
             </a>
           </div>
         </div>
+        <!-- ================= END KARTU APLIKASI 1 ================= -->
 
         <!-- ================= KARTU APLIKASI 2 ================= -->
         <div
-          class="app-card relative group bg-white/20 dark:bg-slate-800/30 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-2xl flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgb(0,0,0,0.2)]"
+          class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
-          <!-- Rating Bintang -->
-          <div
-            class="absolute top-4 right-4 flex items-center bg-black/5 dark:bg-black/40 rounded-full px-2 py-0.5 backdrop-blur-md border border-white/20"
-          >
-            <svg
-              class="w-3.5 h-3.5 text-yellow-400 mr-1"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-              ></path>
-            </svg>
-            <span class="text-xs font-bold text-slate-700 dark:text-white"
-              >4.8</span
-            >
-          </div>
-
-          <div class="p-5 flex-grow mt-2">
+          <div class="p-5 flex-grow">
             <div class="flex items-start justify-between mb-3">
               <img
                 src="dopaminetv.jpg"
@@ -439,26 +434,26 @@
               DopamineTV
             </h3>
             <div
-              class="flex gap-2 text-xs font-medium text-slate-600 dark:text-slate-300"
+              class="flex gap-2 text-xs font-medium text-slate-500 dark:text-slate-400"
             >
               <span
-                class="bg-white/40 dark:bg-slate-900/50 backdrop-blur-sm px-2.5 py-1 rounded-md"
+                class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
                 >Size: 10MB</span
               >
               <span
-                class="bg-white/40 dark:bg-slate-900/50 backdrop-blur-sm px-2.5 py-1 rounded-md"
+                class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
                 >Android 6.0+</span
               >
             </div>
           </div>
           <div
-            class="p-4 border-t border-white/20 dark:border-white/10 bg-white/10 dark:bg-black/10"
+            class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl"
           >
+            <!-- Link Safelinku Card 2 -->
             <a
               href="https://sfl.gl/d1J7"
               target="_blank"
-              onclick="showToast('Menyiapkan file APK...')"
-              class="dl-btn w-full bg-indigo-600/90 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
+              class="dl-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -481,27 +476,9 @@
 
         <!-- ================= KARTU APLIKASI 3 ================= -->
         <div
-          class="app-card relative group bg-white/20 dark:bg-slate-800/30 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-2xl flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgb(0,0,0,0.2)]"
+          class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
-          <!-- Rating Bintang -->
-          <div
-            class="absolute top-4 right-4 flex items-center bg-black/5 dark:bg-black/40 rounded-full px-2 py-0.5 backdrop-blur-md border border-white/20"
-          >
-            <svg
-              class="w-3.5 h-3.5 text-yellow-400 mr-1"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-              ></path>
-            </svg>
-            <span class="text-xs font-bold text-slate-700 dark:text-white"
-              >4.8</span
-            >
-          </div>
-
-          <div class="p-5 flex-grow mt-2">
+          <div class="p-5 flex-grow">
             <div class="flex items-start justify-between mb-3">
               <img
                 src="kltratv.jpg"
@@ -517,26 +494,26 @@
               KltraTV Hikari
             </h3>
             <div
-              class="flex gap-2 text-xs font-medium text-slate-600 dark:text-slate-300"
+              class="flex gap-2 text-xs font-medium text-slate-500 dark:text-slate-400"
             >
               <span
-                class="bg-white/40 dark:bg-slate-900/50 backdrop-blur-sm px-2.5 py-1 rounded-md"
+                class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
                 >Size: 15MB</span
               >
               <span
-                class="bg-white/40 dark:bg-slate-900/50 backdrop-blur-sm px-2.5 py-1 rounded-md"
+                class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
                 >Android 6.0+</span
               >
             </div>
           </div>
           <div
-            class="p-4 border-t border-white/20 dark:border-white/10 bg-white/10 dark:bg-black/10"
+            class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl"
           >
+            <!-- Link Safelinku Card 3 -->
             <a
               href="https://sfl.gl/f02go"
               target="_blank"
-              onclick="showToast('Menyiapkan file APK...')"
-              class="dl-btn w-full bg-indigo-600/90 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
+              class="dl-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -559,27 +536,9 @@
 
         <!-- ================= KARTU APLIKASI 4 ================= -->
         <div
-          class="app-card relative group bg-white/20 dark:bg-slate-800/30 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-2xl flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgb(0,0,0,0.2)]"
+          class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
-          <!-- Rating Bintang -->
-          <div
-            class="absolute top-4 right-4 flex items-center bg-black/5 dark:bg-black/40 rounded-full px-2 py-0.5 backdrop-blur-md border border-white/20"
-          >
-            <svg
-              class="w-3.5 h-3.5 text-yellow-400 mr-1"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-              ></path>
-            </svg>
-            <span class="text-xs font-bold text-slate-700 dark:text-white"
-              >4.8</span
-            >
-          </div>
-
-          <div class="p-5 flex-grow mt-2">
+          <div class="p-5 flex-grow">
             <div class="flex items-start justify-between mb-3">
               <img
                 src="tivoratv.jpg"
@@ -595,26 +554,26 @@
               TivoraTV
             </h3>
             <div
-              class="flex gap-2 text-xs font-medium text-slate-600 dark:text-slate-300"
+              class="flex gap-2 text-xs font-medium text-slate-500 dark:text-slate-400"
             >
               <span
-                class="bg-white/40 dark:bg-slate-900/50 backdrop-blur-sm px-2.5 py-1 rounded-md"
+                class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
                 >Size: 25MB</span
               >
               <span
-                class="bg-white/40 dark:bg-slate-900/50 backdrop-blur-sm px-2.5 py-1 rounded-md"
+                class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
                 >Android 6.0+</span
               >
             </div>
           </div>
           <div
-            class="p-4 border-t border-white/20 dark:border-white/10 bg-white/10 dark:bg-black/10"
+            class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl"
           >
+            <!-- Link Safelinku Card 4 -->
             <a
               href="https://sfl.gl/YFpxd"
               target="_blank"
-              onclick="showToast('Menyiapkan file APK...')"
-              class="dl-btn w-full bg-indigo-600/90 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
+              class="dl-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -637,27 +596,9 @@
 
         <!-- ================= KARTU APLIKASI 5 ================= -->
         <div
-          class="app-card relative group bg-white/20 dark:bg-slate-800/30 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-2xl flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgb(0,0,0,0.2)]"
+          class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
         >
-          <!-- Rating Bintang -->
-          <div
-            class="absolute top-4 right-4 flex items-center bg-black/5 dark:bg-black/40 rounded-full px-2 py-0.5 backdrop-blur-md border border-white/20"
-          >
-            <svg
-              class="w-3.5 h-3.5 text-yellow-400 mr-1"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-              ></path>
-            </svg>
-            <span class="text-xs font-bold text-slate-700 dark:text-white"
-              >4.8</span
-            >
-          </div>
-
-          <div class="p-5 flex-grow mt-2">
+          <div class="p-5 flex-grow">
             <div class="flex items-start justify-between mb-3">
               <img
                 src="youtube.jpg"
@@ -673,26 +614,26 @@
               YouTube Premium
             </h3>
             <div
-              class="flex gap-2 text-xs font-medium text-slate-600 dark:text-slate-300"
+              class="flex gap-2 text-xs font-medium text-slate-500 dark:text-slate-400"
             >
               <span
-                class="bg-white/40 dark:bg-slate-900/50 backdrop-blur-sm px-2.5 py-1 rounded-md"
+                class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
                 >Size: 290MB</span
               >
               <span
-                class="bg-white/40 dark:bg-slate-900/50 backdrop-blur-sm px-2.5 py-1 rounded-md"
+                class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
                 >Android 9.0+</span
               >
             </div>
           </div>
           <div
-            class="p-4 border-t border-white/20 dark:border-white/10 bg-white/10 dark:bg-black/10"
+            class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl"
           >
+            <!-- Link Safelinku Card 5 -->
             <a
               href="https://sfl.gl/F10oT"
               target="_blank"
-              onclick="showToast('Menyiapkan file APK...')"
-              class="dl-btn w-full bg-indigo-600/90 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
+              class="dl-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition-colors flex justify-center items-center gap-2 group/btn shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -752,27 +693,6 @@
         />
       </svg>
     </a>
-
-    <!-- KOTAK TOAST NOTIFICATION (Fitur Baru) -->
-    <div
-      id="toast-notif"
-      class="fixed bottom-24 right-4 z-[60] transform transition-all duration-300 translate-y-10 opacity-0 pointer-events-none flex items-center bg-slate-900/90 dark:bg-slate-100/90 backdrop-blur-md text-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-2xl border border-white/10"
-    >
-      <svg
-        class="w-5 h-5 mr-2 text-green-400 dark:text-green-600"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M5 13l4 4L19 7"
-        ></path>
-      </svg>
-      <span class="text-sm font-semibold tracking-wide">Pesan Notifikasi</span>
-    </div>
 
     <!-- JavaScript Komplit -->
     <script>
@@ -970,29 +890,13 @@
       window.addEventListener("DOMContentLoaded", removeNetlifyBadge);
       const observer = new MutationObserver(removeNetlifyBadge);
       observer.observe(document.body, { childList: true, subtree: true });
-
-      // 8. SCRIPT TOAST NOTIFICATION (Fitur Baru)
-      function showToast(pesan) {
-        const toast = document.getElementById("toast-notif");
-        const spanTeks = toast.querySelector("span");
-
-        spanTeks.innerText = pesan;
-
-        toast.classList.remove("translate-y-10", "opacity-0");
-        toast.classList.add("translate-y-0", "opacity-100");
-
-        setTimeout(() => {
-          toast.classList.remove("translate-y-0", "opacity-100");
-          toast.classList.add("translate-y-10", "opacity-0");
-        }, 3000);
-      }
     </script>
 
-    <!-- Sticky Anchor Ad Adsterra 320x50 (Muncul Melayang di Bawah Layar) -->
+    <!-- Sticky Anchor Ad Adsterra 320x50 (Muncul Melayang di Bawah Layar)
     <div
       class="fixed bottom-0 left-0 w-full z-50 flex justify-center bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700/60 p-2 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]"
     >
-      <!-- Tombol Close -->
+      <!-- Tombol Close 
       <button
         onclick="this.parentElement.style.display = 'none'"
         class="absolute -top-6 right-2 bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 rounded-t-lg px-3 py-1 text-xs font-bold border border-slate-300 dark:border-slate-700/60 border-b-0 transition-colors"
@@ -1000,7 +904,7 @@
         Close ✕
       </button>
 
-      <!-- Kode Iklan Adsterra 320x50 -->
+      <!-- Kode Iklan Adsterra 320x50
       <script>
         atOptions = {
           key: "ec2eefa593f3b35fead14470f4bc14a8",
@@ -1012,5 +916,6 @@
       </script>
       <script src="https://bellnewyork.org/22/ec2eefa593f3b35fead14470f4bc14a8"></script>
     </div>
+    -->
   </body>
 </html>
