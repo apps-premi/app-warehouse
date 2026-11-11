@@ -26,6 +26,12 @@
         -webkit-backdrop-filter: blur(10px);
       }
     </style>
+
+    <!-- Font ala Nothing Phone (DotGothic16) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body
     class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-200 antialiased min-h-screen flex flex-col transition-colors duration-300"
@@ -283,6 +289,36 @@
           <h2
             class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-3 flex flex-wrap items-center gap-x-2"
           >
+            <!-- WIDGET JAM DIGITAL ALA NOTHING PHONE -->
+            <div
+              class="flex flex-col items-center justify-center my-12 transition-all duration-500"
+            >
+              <div
+                class="font-bold text-slate-800 dark:text-slate-100 flex items-end gap-1"
+                style="font-family: &quot;DotGothic16&quot;, sans-serif"
+              >
+                <!-- Jam dan Menit (Ukuran Gede) -->
+                <span
+                  id="jamMenit"
+                  class="text-7xl md:text-8xl tracking-widest drop-shadow-md"
+                  >00:00</span
+                >
+                <!-- Detik (Ukuran Kecil) -->
+                <span
+                  id="detik"
+                  class="text-3xl md:text-5xl text-indigo-500 dark:text-indigo-400 mb-2 md:mb-3 drop-shadow-sm"
+                  >00</span
+                >
+              </div>
+              <!-- Tanggal, Bulan, Tahun -->
+              <div
+                id="tanggalan"
+                class="text-sm md:text-lg tracking-[0.4em] uppercase mt-1 text-slate-500 dark:text-slate-400 font-semibold"
+                style="font-family: &quot;DotGothic16&quot;, sans-serif"
+              >
+                MEMUAT TANGGAL...
+              </div>
+            </div>
             <span id="listTitle">List Applications</span>
             <span
               id="dynamicText"
@@ -1022,6 +1058,59 @@
       document.querySelectorAll(".app-card").forEach((card) => {
         scrollObserver.observe(card);
       });
+
+      // 8. WIDGET JAM DIGITAL ALA NOTHING PHONE
+      function jalankanJam() {
+        const waktu = new Date();
+
+        // Ambil angka (ditambahin '0' di depan kalau angkanya di bawah 10)
+        const jam = String(waktu.getHours()).padStart(2, "0");
+        const menit = String(waktu.getMinutes()).padStart(2, "0");
+        const detik = String(waktu.getSeconds()).padStart(2, "0");
+
+        // Masukin angka ke HTML
+        document.getElementById("jamMenit").innerText = `${jam}:${menit}`;
+        document.getElementById("detik").innerText = detik;
+
+        // Susun hari dan tanggal
+        const namaHari = [
+          "Minggu",
+          "Senin",
+          "Selasa",
+          "Rabu",
+          "Kamis",
+          "Jumat",
+          "Sabtu",
+        ];
+        const namaBulan = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "Mei",
+          "Jun",
+          "Jul",
+          "Agu",
+          "Sep",
+          "Okt",
+          "Nov",
+          "Des",
+        ];
+
+        const hari = namaHari[waktu.getDay()];
+        const tanggal = waktu.getDate();
+        const bulan = namaBulan[waktu.getMonth()];
+        const tahun = waktu.getFullYear();
+
+        // Masukin tanggal ke HTML
+        document.getElementById("tanggalan").innerText =
+          `${hari}, ${tanggal} ${bulan} ${tahun}`;
+      }
+
+      // Biar gak nunggu 1 detik pas web baru dibuka, panggil sekali dulu
+      jalankanJam();
+      // Bikin detiknya berdetak berulang-ulang
+      setInterval(jalankanJam, 1000);
     </script>
 
     <!-- Sticky Anchor Ad Adsterra 320x50 (Muncul Melayang di Bawah Layar)
