@@ -868,10 +868,8 @@
       }
 
       // CEK MEMORI BAHASA SAAT HALAMAN PERTAMA DIBUKA
-      document.addEventListener("DOMContentLoaded", () => {
-        const savedLang = localStorage.language || "en";
-        changeLanguage(savedLang);
-      });
+      const savedLang = localStorage.language || "en";
+      changeLanguage(savedLang);
 
       // 3. FUNGSI DROPDOWN BAHASA & CONTACT
       const langBtn = document.getElementById("langBtn");
