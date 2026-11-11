@@ -867,16 +867,13 @@
         langDropdown.classList.add("hidden");
       }
 
-      // CEK MEMORI BAHASA SAAT HALAMAN PERTAMA DIBUKA
-      const savedLang = localStorage.language || "en";
-      changeLanguage(savedLang);
-
       // 3. FUNGSI DROPDOWN BAHASA & CONTACT
       const langBtn = document.getElementById("langBtn");
       const langDropdown = document.getElementById("langDropdown");
       const contactBtn = document.getElementById("contactBtn");
       const contactDropdown = document.getElementById("contactDropdown");
-
+      const savedLang = localStorage.language || "en";
+      changeLanguage(savedLang);
       langBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         langDropdown.classList.toggle("hidden");
