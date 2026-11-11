@@ -274,13 +274,15 @@
       id="apk-list"
       class="scroll-mt-28 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full"
     >
-      <!-- WIDGET JAM DIGITAL ALA IOS (KIRI ATAS) -->
-      <div class="flex flex-col items-start w-full mb-6 mt-4">
+      <!-- WIDGET JAM DIGITAL ALA IOS (DENGAN GARIS VERTIKAL) -->
+      <div
+        class="flex flex-col items-start w-full mb-6 mt-4 pl-4 border-l-4 border-indigo-500"
+      >
         <div
-          class="font-sans font-bold text-slate-900 dark:text-white flex items-baseline gap-1"
+          class="font-sans font-bold text-slate-900 dark:text-white flex items-baseline gap-1.5"
         >
-          <!-- Jam dan Menit (Lebih rapat dan tebal ala iOS) -->
-          <span id="jamMenit" class="text-5xl md:text-6xl tracking-tight"
+          <!-- Jam dan Menit (Dinaikin dikit ukurannya) -->
+          <span id="jamMenit" class="text-6xl md:text-7xl tracking-tight"
             >00:00</span
           >
           <!-- Detik -->
@@ -290,12 +292,12 @@
             >00</span
           >
         </div>
-        <!-- Tanggal, Bulan, Tahun -->
+        <!-- Tanggal, Bulan, Tahun (Dibuat otomatis ikut bahasa) -->
         <div
           id="tanggalan"
-          class="text-sm md:text-base font-medium text-slate-500 dark:text-slate-400 tracking-wide uppercase mt-1"
+          class="text-sm md:text-base font-semibold text-slate-500 dark:text-slate-400 tracking-wider uppercase mt-1"
         >
-          MEMUAT TANGGAL...
+          LOADING...
         </div>
       </div>
 
@@ -1050,57 +1052,82 @@
         scrollObserver.observe(card);
       });
 
-      // 8. WIDGET JAM DIGITAL ALA IOS
+      // 8. WIDGET JAM DIGITAL & TANGGAL MULTI-LANGUAGE
       function jalankanJam() {
         const waktu = new Date();
 
-        // Ambil angka (ditambahin '0' di depan kalau angkanya di bawah 10)
         const jam = String(waktu.getHours()).padStart(2, "0");
         const menit = String(waktu.getMinutes()).padStart(2, "0");
         const detik = String(waktu.getSeconds()).padStart(2, "0");
 
-        // Masukin angka ke HTML
         document.getElementById("jamMenit").innerText = `${jam}:${menit}`;
         document.getElementById("detik").innerText = detik;
 
-        // Susun hari dan tanggal
-        const namaHari = [
-          "Minggu",
-          "Senin",
-          "Selasa",
-          "Rabu",
-          "Kamis",
-          "Jumat",
-          "Sabtu",
-        ];
-        const namaBulan = [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "Mei",
-          "Jun",
-          "Jul",
-          "Agu",
-          "Sep",
-          "Okt",
-          "Nov",
-          "Des",
-        ];
+        // Deteksi bahasa yang lagi aktif (ngecek atribut lang di tag <html>)
+        const currentLang = document.documentElement.lang || "en";
+
+        let namaHari, namaBulan;
+
+        if (currentLang === "id") {
+          namaHari = [
+            "Minggu",
+            "Senin",
+            "Selasa",
+            "Rabu",
+            "Kamis",
+            "Jumat",
+            "Sabtu",
+          ];
+          namaBulan = [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "Mei",
+            "Jun",
+            "Jul",
+            "Agu",
+            "Sep",
+            "Okt",
+            "Nov",
+            "Des",
+          ];
+        } else {
+          namaHari = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ];
+          namaBulan = [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ];
+        }
 
         const hari = namaHari[waktu.getDay()];
         const tanggal = waktu.getDate();
         const bulan = namaBulan[waktu.getMonth()];
         const tahun = waktu.getFullYear();
 
-        // Masukin tanggal ke HTML
         document.getElementById("tanggalan").innerText =
           `${hari}, ${tanggal} ${bulan} ${tahun}`;
       }
 
-      // Biar gak nunggu 1 detik pas web baru dibuka, panggil sekali dulu
       jalankanJam();
-      // Bikin detiknya berdetak berulang-ulang
       setInterval(jalankanJam, 1000);
     </script>
 
