@@ -82,11 +82,11 @@
                 <a
                   href="https://instagram.com"
                   target="_blank"
-                  class="group p-2 hover:bg-slate-100 dark:hover:bg-slate-700/60 rounded-lg transition border-b-2 border-transparent hover:border-indigo-500 flex items-center justify-center"
+                  class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition text-pink-500 shadow-inner flex items-center justify-center"
                   title="Instagram"
                 >
                   <svg
-                    class="w-5 h-5 text-pink-500 transition-transform group-hover:scale-110"
+                    class="w-5 h-5"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
@@ -97,32 +97,30 @@
                     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                   </svg>
                 </a>
+
                 <!-- Facebook -->
                 <a
                   href="https://facebook.com"
                   target="_blank"
-                  class="group p-2 hover:bg-slate-100 dark:hover:bg-slate-700/60 rounded-lg transition border-b-2 border-transparent hover:border-indigo-500 flex items-center justify-center"
+                  class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition text-blue-500 shadow-inner flex items-center justify-center"
                   title="Facebook"
                 >
-                  <svg
-                    class="w-5 h-5 text-blue-500 transition-transform group-hover:scale-110"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path
                       d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
                     />
                   </svg>
                 </a>
+
                 <!-- Telegram -->
                 <a
                   href="https://t.me"
                   target="_blank"
-                  class="group p-2 hover:bg-slate-100 dark:hover:bg-slate-700/60 rounded-lg transition border-b-2 border-transparent hover:border-indigo-500 flex items-center justify-center"
+                  class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition text-sky-400 shadow-inner flex items-center justify-center"
                   title="Telegram"
                 >
                   <svg
-                    class="w-5 h-5 text-sky-400 transition-transform group-hover:scale-110"
+                    class="w-5 h-5"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
@@ -247,26 +245,52 @@
         safe, ad-free, and updated daily for phones & Smart TVs.
       </p>
 
-      <!-- Tombol Explore All Apps -->
-      <a
-        href="#apk-list"
-        id="exploreBtn"
-        class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-8 rounded-xl transition-all shadow-[0_0_20px_rgba(99,102,241,0.4)]"
-      >
-        Explore All Apps
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
+      <!-- Tombol Aksi (Explore All Apps & Donate Kapsul) -->
+      <div class="flex items-center justify-center gap-3">
+        <a
+          href="#apk-list"
+          id="exploreBtn"
+          class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-8 rounded-xl transition-all shadow-[0_0_20px_rgba(99,102,241,0.4)]"
         >
-          <path
-            fill-rule="evenodd"
-            d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </a>
+          Explore All Apps
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </a>
+
+        <!-- Tombol Donate Kapsul (Otomatis ikut terjemahan karena ID donateText sudah ada) -->
+        <a
+          href="https://saweria.co/kyyshee"
+          target="_blank"
+          id="donateBtn"
+          class="inline-flex items-center gap-2 bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold py-3 px-6 rounded-xl transition-all shadow-sm border border-slate-300 dark:border-slate-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-amber-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            />
+          </svg>
+          <span id="donateText">Donate</span>
+        </a>
+      </div>
     </header>
 
     <!-- Main Content (APK List & Search Bar) -->
