@@ -364,7 +364,7 @@
         <!-- PETUNJUK: Copy blok div ini dari atas sampai bawah kalau mau nambah APK baru -->
         <!-- ========================================================================= -->
         <div
-          class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden"
+          class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500/60 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] transition-all duration-300 flex flex-col overflow-hidden opacity-0 translate-y-6 transition-all duration-700 ease-out"
         >
           <div class="p-5 flex-grow">
             <div class="flex items-start justify-between mb-3">
@@ -975,28 +975,23 @@
         }
       });
 
-      // 7. CLEANUP WATERMARK NETLIFY
-      const removeNetlifyBadge = () => {
-        const elements = document.querySelectorAll("iframe, a, div");
-        elements.forEach((el) => {
-          if (
-            (el.src && el.src.includes("netlify")) ||
-            (el.innerHTML && el.innerHTML.includes("netlify")) ||
-            (el.getAttribute("alt") &&
-              el.getAttribute("alt").includes("Netlify"))
-          ) {
-            if (
-              el.getBoundingClientRect().bottom > window.innerHeight - 100 ||
-              el.tagName === "IFRAME"
-            ) {
-              el.remove();
-            }
+      // 7. EFEK MUNCUL SAAT DI-SCROLL (SCROLL ANIMATION)
+      const scrollObserverOptions = {
+        threshold: 0.1,
+      };
+
+      const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("opacity-0", "translate-y-6");
+            observer.unobserve(entry.target);
           }
         });
-      };
-      window.addEventListener("DOMContentLoaded", removeNetlifyBadge);
-      const observer = new MutationObserver(removeNetlifyBadge);
-      observer.observe(document.body, { childList: true, subtree: true });
+      }, scrollObserverOptions);
+
+      document.querySelectorAll(".app-card").forEach((card) => {
+        scrollObserver.observe(card);
+      });
     </script>
 
     <!-- Sticky Anchor Ad Adsterra 320x50 (Muncul Melayang di Bawah Layar)
