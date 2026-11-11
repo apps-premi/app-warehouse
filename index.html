@@ -343,6 +343,14 @@
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         id="appGrid"
       >
+        <!-- TEKS NOTIFICATION JIKA APLIKASI TIDAK KETEMU -->
+        <div
+          id="noResult"
+          class="hidden text-center py-8 text-xs font-medium text-slate-400 dark:text-slate-500"
+        >
+          Not Available
+        </div>
+
         <!-- ========================================================================= -->
         <!-- KARTU APLIKASI 1 -->
         <!-- PETUNJUK: Copy blok ini dari div "app-card" sampai penutupnya kalau mau nambah APK -->
@@ -852,20 +860,31 @@
         }
       });
 
-      // 6. FITUR PENCARIAN REAL-TIME
+      // 6. FITUR PENCARIAN REAL-TIME (DENGAN INDIKATOR NOT AVAILABLE)
       const searchInput = document.getElementById("searchInput");
       const appCards = document.querySelectorAll(".app-card");
+      const noResultEl = document.getElementById("noResult"); // Elemen notifikasi tidak ketemu
 
       searchInput.addEventListener("input", (e) => {
         const term = e.target.value.toLowerCase();
+        let visibleCount = 0; // Hitung jumlah aplikasi yang cocok
+
         appCards.forEach((card) => {
           const text = card.innerText.toLowerCase();
           if (text.includes(term)) {
             card.style.display = "flex";
+            visibleCount++; // Tambah 1 kalau ketemu
           } else {
             card.style.display = "none";
           }
         });
+
+        // Kalau tidak ada satupun aplikasi yang tampil, munculkan tulisan "Not Available"
+        if (visibleCount === 0) {
+          noResultEl.classList.remove("hidden");
+        } else {
+          noResultEl.classList.add("hidden");
+        }
       });
 
       // 7. CLEANUP WATERMARK NETLIFY
