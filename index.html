@@ -53,63 +53,88 @@
             </span>
           </div>
 
-          <!-- Navigasi Kanan (Logo Sosmed Terbuka, Bahasa, Tema) -->
-          <div class="flex items-center gap-2">
-            <!-- Instagram -->
+          <!-- Navigasi Kanan (Donate, Contact Dropdown, Bahasa, Tema) -->
+          <div class="flex items-center gap-3">
+            <!-- Shortcut Donate -->
             <a
-              href="https://instagram.com"
+              href="https://saweria.co/kyyshee"
               target="_blank"
-              class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition text-pink-500 shadow-inner flex items-center justify-center"
-              title="Instagram"
+              id="navDonate"
+              class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+              >Donate</a
             >
-              <svg
-                class="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-              </svg>
-            </a>
 
-            <!-- Facebook -->
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition text-blue-500 shadow-inner flex items-center justify-center"
-              title="Facebook"
-            >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                />
-              </svg>
-            </a>
-
-            <!-- Telegram -->
-            <a
-              href="https://t.me"
-              target="_blank"
-              class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition text-sky-400 shadow-inner flex items-center justify-center"
-              title="Telegram"
-            >
-              <svg
-                class="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
+            <!-- MENU CONTACT DROPDOWN (Center Pas & Minimalis Icon Only) -->
+            <div class="relative">
+              <button
+                id="contactBtn"
+                class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center gap-1 focus:outline-none"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"
-                />
-              </svg>
-            </a>
+                <span id="navContact">Contact</span>
+              </button>
+
+              <!-- Isi Dropdown Sosmed (Presisi Tengah, Icon Kecil, Tanpa Teks) -->
+              <div
+                id="contactDropdown"
+                class="absolute left-1/2 -translate-x-1/2 top-full mt-8 bg-white/80 dark:bg-slate-900/80 glass-panel border border-slate-200 dark:border-slate-700/50 rounded-xl shadow-2xl p-2 hidden z-50 flex-row items-center gap-2"
+              >
+                <!-- Instagram -->
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition text-pink-500 shadow-inner flex items-center justify-center"
+                  title="Instagram"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                  </svg>
+                </a>
+
+                <!-- Facebook -->
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition text-blue-500 shadow-inner flex items-center justify-center"
+                  title="Facebook"
+                >
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                    />
+                  </svg>
+                </a>
+
+                <!-- Telegram -->
+                <a
+                  href="https://t.me"
+                  target="_blank"
+                  class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition text-sky-400 shadow-inner flex items-center justify-center"
+                  title="Telegram"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
 
             <div class="h-4 w-[1px] bg-slate-300 dark:bg-slate-700 mx-1"></div>
 
