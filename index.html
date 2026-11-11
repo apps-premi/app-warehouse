@@ -891,34 +891,20 @@
         langDropdown.classList.add("hidden");
       }
 
-      // 3. FUNGSI DROPDOWN BAHASA & CONTACT
+      // 3. FUNGSI DROPDOWN BAHASA
       const langBtn = document.getElementById("langBtn");
       const langDropdown = document.getElementById("langDropdown");
-      const contactBtn = document.getElementById("contactBtn");
-      const contactDropdown = document.getElementById("contactDropdown");
       const savedLang = localStorage.language || "en";
       changeLanguage(savedLang);
+
       langBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         langDropdown.classList.toggle("hidden");
-        contactDropdown.classList.add("hidden");
-        contactDropdown.classList.remove("flex");
-      });
-
-      contactBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        contactDropdown.classList.toggle("hidden");
-        contactDropdown.classList.toggle("flex");
-        langDropdown.classList.add("hidden");
       });
 
       window.addEventListener("click", () => {
         if (!langDropdown.classList.contains("hidden")) {
           langDropdown.classList.add("hidden");
-        }
-        if (!contactDropdown.classList.contains("hidden")) {
-          contactDropdown.classList.add("hidden");
-          contactDropdown.classList.remove("flex");
         }
       });
 
