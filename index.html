@@ -343,13 +343,18 @@
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         id="appGrid"
       >
-        <!-- TEKS NOTIFICATION JIKA APLIKASI TIDAK KETEMU (Dibuat center merentang) -->
+        <!-- TEKS NOTIFICATION JIKA APLIKASI TIDAK KETEMU -->
         <div
           id="noResult"
           class="hidden col-span-full text-center py-12 text-sm font-semibold text-slate-400 dark:text-slate-500"
         >
-          Not Available
-          <p class="text-xs font-normal mt-1 text-slate-400/70">
+          <!-- Diberi id="notAvailableText" agar bisa ditranslate -->
+          <span id="notAvailableText">Not Available</span>
+          <!-- Diberi id="notAvailableDesc" agar deskripsinya ikut berubah -->
+          <p
+            id="notAvailableDesc"
+            class="text-xs font-normal mt-1 text-slate-400/70"
+          >
             Aplikasi yang kamu cari tidak ditemukan atau belum tersedia.
           </p>
         </div>
@@ -721,6 +726,10 @@
           explore: "Explore All Apps",
           listTitle: "List Applications",
           downloadBtn: "Download APK",
+          // TAMBAHKAN INI UNTUK BAHASA INGGRIS:
+          notAvailable: "Not Available",
+          notAvailableDesc:
+            "The application you are looking for was not found or is not yet available.",
           footerText:
             '&copy; 2026 Premium App Store. All rights reserved.<br /><span class="text-xs mt-2 block">Disclaimer: This website only shares third-party APK files for educational, testing, and review purposes. All copyrights and trademarks belong to their respective developers.</span>',
         },
@@ -736,6 +745,10 @@
           explore: "Jelajahi Semua APK",
           listTitle: "Daftar Aplikasi",
           downloadBtn: "Download APK",
+          // TAMBAHKAN INI UNTUK BAHASA INDONESIA:
+          notAvailable: "Tidak Tersedia",
+          notAvailableDesc:
+            "Aplikasi yang kamu cari tidak ditemukan atau belum tersedia.",
           footerText:
             '&copy; 2026 Gudang Aplikasi Premium MOD. Hak cipta dilindungi.<br /><span class="text-xs mt-2 block">Disclaimer: Web ini hanya membagikan ulang file APK pihak ketiga untuk tujuan edukasi, pengujian, dan ulasan aplikasi. Seluruh hak cipta dan merek dagang aplikasi tetap milik developer masing-masing.</span>',
         },
@@ -743,6 +756,11 @@
 
       // 2. FUNGSI GANTI BAHASA
       function changeLanguage(lang) {
+        // Tambahkan baris ini di dalam function changeLanguage(lang):
+        document.getElementById("notAvailableText").innerText =
+          translations[lang].notAvailable;
+        document.getElementById("notAvailableDesc").innerText =
+          translations[lang].notAvailableDesc;
         document.documentElement.lang = lang;
         document.getElementById("brandTitle").innerHTML =
           translations[lang].brand;
