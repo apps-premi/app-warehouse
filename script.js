@@ -316,8 +316,8 @@ setInterval(jalankanJam, 1000);
 function scrollToApps() {
   const targetElement = document.getElementById("apk-list");
   if (targetElement) {
-    // Sesuaikan angka 80 atau 100 ini buat mengatur jarak aman dari atas layar (biar gak ketutupan navbar)
-    const headerOffset = 90;
+    // Naikin angkanya jadi 150 atau 180 biar posisinya ngelewatin banner iklan dan pas di atas kartu APK
+    const headerOffset = 160;
     const elementPosition = targetElement.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
