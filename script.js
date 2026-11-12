@@ -316,14 +316,9 @@ setInterval(jalankanJam, 1000);
 function scrollToApps() {
   const targetElement = document.getElementById("apk-list");
   if (targetElement) {
-    // Naikin angkanya jadi 150 atau 180 biar posisinya ngelewatin banner iklan dan pas di atas kartu APK
-    const headerOffset = 160;
-    const elementPosition = targetElement.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
+    targetElement.scrollIntoView({
       behavior: "smooth",
+      block: "start",
     });
   }
 }
