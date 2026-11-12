@@ -346,56 +346,54 @@
           </h2>
         </div>
 
-        <!-- Kotak Iklan Banner -->
-        <div
-          class="w-full bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 rounded-xl p-3 mb-8 flex flex-col items-center justify-center min-h-[250px] text-center overflow-hidden"
-        >
-          <span class="text-[10px] uppercase tracking-wider text-slate-400 mb-1"
-            >Advertisement</span
-          >
-          <script>
-            atOptions = {
-              key: "6b91426f71517355ed13214cbca857f9",
-              format: "iframe",
-              height: 250,
-              width: 300,
-              params: {},
-            };
-          </script>
-          <script src="https://bellnewyork.org/22/6b91426f71517355ed13214cbca857f9"></script>
-        </div>
-        -->
-
-        <!-- Kotak Pencarian Instan -->
-        <div class="w-full md:w-80">
+        <!-- Grid Kartu Ringkas -->
+        <div id="apk-list" class="scroll-mt-28">
+          <!-- Kotak Iklan Banner -->
           <div
-            class="flex items-center bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-indigo-500 focus-within:border-indigo-500 rounded-xl px-4 py-3 shadow-sm transition duration-200"
+            class="w-full bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 rounded-xl p-3 mb-8 flex flex-col items-center justify-center min-h-[250px] text-center overflow-hidden"
           >
-            <svg
-              class="w-5 h-5 text-slate-400 mr-3 shrink-0"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
+            <span
+              class="text-[10px] uppercase tracking-wider text-slate-400 mb-1"
+              >Advertisement</span
             >
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search Apps"
-              class="w-full bg-transparent text-slate-900 dark:text-slate-200 placeholder-slate-400 focus:outline-none text-sm md:text-base"
-            />
+            <script>
+              atOptions = {
+                key: "6b91426f71517355ed13214cbca857f9",
+                format: "iframe",
+                height: 250,
+                width: 300,
+                params: {},
+              };
+            </script>
+            <script src="https://bellnewyork.org/22/6b91426f71517355ed13214cbca857f9"></script>
+          </div>
+          -->
+
+          <!-- Kotak Pencarian Instan -->
+          <div class="w-full md:w-80">
+            <div
+              class="flex items-center bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-indigo-500 focus-within:border-indigo-500 rounded-xl px-4 py-3 shadow-sm transition duration-200"
+            >
+              <svg
+                class="w-5 h-5 text-slate-400 mr-3 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Apps"
+                class="w-full bg-transparent text-slate-900 dark:text-slate-200 placeholder-slate-400 focus:outline-none text-sm md:text-base"
+              />
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Grid Kartu Ringkas -->
-      <div
-        id="apk-list"
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 scroll-mt-28"
-      >
         <!-- TEKS NOTIFICATION JIKA APLIKASI TIDAK KETEMU -->
         <div
           id="noResult"
