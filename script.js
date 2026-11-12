@@ -316,9 +316,17 @@ setInterval(jalankanJam, 1000);
 function scrollToApps() {
   const targetElement = document.getElementById("apk-list");
   if (targetElement) {
-    targetElement.scrollIntoView({
+    // Ambil posisi persis si grid dari atas halaman web
+    const elementRect = targetElement.getBoundingClientRect();
+    const absoluteElementTop = elementRect.top + window.pageYOffset;
+
+    // Kurangin misal 120 pixel supaya posisinya BERHENTI TEPAT DI ATAS grid (ngelewatin banner)
+    // Kalau masih kurang pas, tinggal ganti angka 120 jadi lebih besar (misal 150 atau 180)
+    const offsetPosition = absoluteElementTop - 120;
+
+    window.scrollTo({
+      top: offsetPosition,
       behavior: "smooth",
-      block: "start",
     });
   }
 }
