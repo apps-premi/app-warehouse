@@ -156,42 +156,45 @@
               </div>
             </div>
 
-            <!-- Tombol Dark / Light Mode Toggle -->
+            <!-- Dark Mode Toggle Switch (Saklar) -->
             <button
               id="themeToggle"
-              class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition flex items-center justify-center text-slate-700 dark:text-yellow-400 shadow-inner"
-              title="Toggle Theme"
+              class="relative inline-flex h-7 w-14 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900 bg-slate-300 dark:bg-indigo-600"
+              aria-label="Toggle Dark Mode"
             >
-              <svg
-                id="sunIcon"
-                class="w-5 h-5 hidden"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
+              <!-- Lingkaran Saklar (bergeser saat dark mode) -->
+              <span
+                id="toggleCircle"
+                class="inline-flex h-5 w-5 transform items-center justify-center rounded-full bg-white shadow-md transition duration-300 translate-x-1 dark:translate-x-8"
               >
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-              <svg
-                id="moonIcon"
-                class="w-5 h-5 block"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-                ></path>
-              </svg>
+                <!-- Ikon Matahari (Muncul di Light Mode) -->
+                <svg
+                  id="sunIcon"
+                  class="h-3 w-3 text-amber-500 transition-opacity duration-300 dark:opacity-0"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                  ></path>
+                </svg>
+
+                <!-- Ikon Bulan (Muncul di Dark Mode) -->
+                <svg
+                  id="moonIcon"
+                  class="absolute h-3 w-3 text-indigo-600 opacity-0 transition-opacity duration-300 dark:opacity-100"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                  ></path>
+                </svg>
+              </span>
             </button>
           </div>
         </div>

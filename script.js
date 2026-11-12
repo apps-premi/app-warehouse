@@ -167,47 +167,26 @@ setInterval(() => {
 // ==========================================
 const themeToggle = document.getElementById("themeToggle");
 const htmlElement = document.documentElement;
-const sunIcon = document.getElementById("sunIcon");
-const moonIcon = document.getElementById("moonIcon");
 
-// Fungsi untuk mengatur ikon (matahari/bulan) berdasarkan tema yang aktif
-function updateIcons(isDark) {
-  if (isDark) {
-    sunIcon.classList.remove("hidden");
-    sunIcon.classList.add("block");
-    moonIcon.classList.remove("block");
-    moonIcon.classList.add("hidden");
-  } else {
-    sunIcon.classList.remove("block");
-    sunIcon.classList.add("hidden");
-    moonIcon.classList.remove("hidden");
-    moonIcon.classList.add("block");
-  }
-}
-
-// Saat pertama kali web dibuka: Cek memori (localStorage)
+// 5a. Saat pertama kali web dibuka: Cek memori (localStorage)
 if (
   localStorage.theme === "dark" ||
   (!("theme" in localStorage) &&
     window.matchMedia("(prefers-color-scheme: dark)").matches)
 ) {
   htmlElement.classList.add("dark");
-  updateIcons(true);
 } else {
   htmlElement.classList.remove("dark");
-  updateIcons(false);
 }
 
-// Saat tombol diklik: Ganti tema dan simpan ke memori
+// 5b. Saat tombol diklik: Ganti tema dan simpan ke memori
 themeToggle.addEventListener("click", () => {
   if (htmlElement.classList.contains("dark")) {
     htmlElement.classList.remove("dark");
-    localStorage.theme = "light";
-    updateIcons(false);
+    localStorage.theme = "light"; // Simpan pilihan terang ke memori
   } else {
     htmlElement.classList.add("dark");
-    localStorage.theme = "dark";
-    updateIcons(true);
+    localStorage.theme = "dark"; // Simpan pilihan gelap ke memori
   }
 });
 
