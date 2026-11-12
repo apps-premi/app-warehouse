@@ -168,25 +168,14 @@ setInterval(() => {
 const themeToggle = document.getElementById("themeToggle");
 const htmlElement = document.documentElement;
 
-// 5a. Saat pertama kali web dibuka: Cek memori (localStorage)
-if (
-  localStorage.theme === "dark" ||
-  (!("theme" in localStorage) &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
-  htmlElement.classList.add("dark");
-} else {
-  htmlElement.classList.remove("dark");
-}
-
-// 5b. Saat tombol diklik: Ganti tema dan simpan ke memori
+// Saat tombol diklik: Ganti tema dan simpan ke memori
 themeToggle.addEventListener("click", () => {
   if (htmlElement.classList.contains("dark")) {
     htmlElement.classList.remove("dark");
-    localStorage.theme = "light"; // Simpan pilihan terang ke memori
+    localStorage.theme = "light";
   } else {
     htmlElement.classList.add("dark");
-    localStorage.theme = "dark"; // Simpan pilihan gelap ke memori
+    localStorage.theme = "dark";
   }
 });
 
