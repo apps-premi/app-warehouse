@@ -312,3 +312,18 @@ function jalankanJam() {
 // Jalankan jam pertama kali, lalu update setiap detik
 jalankanJam();
 setInterval(jalankanJam, 1000);
+
+function scrollToApps() {
+  const targetElement = document.getElementById("apk-list");
+  if (targetElement) {
+    // Sesuaikan angka 80 atau 100 ini buat mengatur jarak aman dari atas layar (biar gak ketutupan navbar)
+    const headerOffset = 90;
+    const elementPosition = targetElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
+}

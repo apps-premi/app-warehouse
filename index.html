@@ -25,6 +25,9 @@
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
       }
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
     <!-- Script ini ditaruh di head biar gak ada efek kedip (FOUC) pas ganti tema -->
     <script>
@@ -239,9 +242,10 @@
       <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
         <!-- Tombol Explore All Apps -->
         <a
-          href="#apk-list"
+          href="javascript:void(0);"
+          onclick="scrollToApps()"
           id="exploreBtn"
-          class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-500/25 transition-all duration-300 transform hover:-translate-y-1 gap-2"
+          class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/30"
         >
           <span
             id="exploreText"
@@ -389,7 +393,8 @@
 
       <!-- Grid Kartu Ringkas -->
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        id="apk-list"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 scroll-mt-28"
         id="appGrid"
       >
         <!-- TEKS NOTIFICATION JIKA APLIKASI TIDAK KETEMU -->
