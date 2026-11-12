@@ -312,3 +312,13 @@ function jalankanJam() {
 // Jalankan jam pertama kali, lalu update setiap detik
 jalankanJam();
 setInterval(jalankanJam, 1000);
+
+function scrollToApps() {
+  const targetElement = document.getElementById("apk-list");
+  if (targetElement) {
+    targetElement.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+}
