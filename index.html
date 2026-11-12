@@ -402,74 +402,86 @@
         <!-- PETUNJUK: Copy blok div ini dari atas sampai bawah kalau mau nambah APK baru -->
         <!-- ========================================================================= -->
         <div
-          class="app-card group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:ring-2 hover:ring-indigo-500 hover:-translate-y-1.5 hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-all duration-300 flex flex-col overflow-hidden opacity-0 translate-y-6 transition-all duration-700 ease-out"
+          class="app-card group relative bg-slate-100 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-transparent p-[2px] hover:-translate-y-1.5 hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-all duration-300 flex flex-col overflow-hidden opacity-0 translate-y-6 ease-out cursor-pointer"
         >
-          <div class="p-5 flex-grow">
-            <div class="flex items-start justify-between mb-3">
-              <!-- GANTI GAMBAR: Ubah src="nama-logo.jpg" pakai file logo aplikasi lo -->
-              <img
-                src="dopaminetv.jpg"
-                alt="logo DopamineTV PC"
-                class="w-12 h-12 rounded-xl object-cover shadow-md transition-transform duration-300 group-hover:scale-105"
-              />
-              <!-- GANTI VERSI: Tulis versi aplikasinya di sini (contoh: v1.2 Premium) -->
-              <span
-                class="bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-green-500/30"
-                >v1.0.6 Trial-30D</span
-              >
-            </div>
-
-            <!-- GANTI NAMA APLIKASI: Tulis nama aplikasinya di sini -->
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">
-              DopamineTV PC
-            </h3>
-
-            <!-- GANTI DETAIL UKURAN & OS / PLATFORM -->
-            <div
-              class="flex gap-2 text-xs font-medium text-slate-500 dark:text-slate-400"
-            >
-              <span
-                class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
-                >Size: 10MB</span
-              >
-              <span
-                class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
-                >Windows 10-x64</span
-              >
-            </div>
-          </div>
-
-          <!-- BAGIAN TOMBOL DOWNLOAD & EFEK LONCAT -->
+          <!-- LAYER CAHAYA NEON BERPUTAR (Muncul pas di-hover) -->
           <div
-            class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl"
+            class="absolute inset-[-100%] z-0 bg-[conic-gradient(from_0deg,transparent_75%,#6366f1_100%)] opacity-0 group-hover:opacity-100 animate-spin transition-opacity duration-300"
+            style="animation-duration: 3s"
+          ></div>
+
+          <!-- LAYER PENUTUP TENGAH KARTU (Biar cahayanya cuma keliatan di pinggir) -->
+          <div
+            class="relative z-10 bg-white dark:bg-slate-800 h-full w-full rounded-[14px] flex flex-col overflow-hidden"
           >
-            <!-- GANTI LINK DOWNLOAD: Masukin link Safelinku lo di dalam tanda kutip href="..." -->
-            <a
-              href="https://sfl.gl/SJbUzcG"
-              target="_blank"
-              onclick="showToast('Menyiapkan file APK...')"
-              class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 dark:hover:bg-indigo-600 text-slate-700 dark:text-slate-200 hover:text-white font-medium py-2.5 rounded-xl transition-all duration-300 flex justify-center items-center gap-2 group/btn shadow-sm hover:shadow-indigo-500/30 hover:shadow-lg"
-            >
-              <!-- Ikon panah yang ikut loncat-loncat saat kursor diarahkan -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 transition-transform group-hover/btn:animate-bounce"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+            <!-- BAGIAN ATAS KARTU (Logo, Judul, Size) -->
+            <div class="p-5 flex-grow">
+              <div class="flex items-start justify-between mb-3">
+                <!-- GANTI GAMBAR: Ubah src="nama-logo.jpg" pakai file logo aplikasi lo -->
+                <img
+                  src="dopaminetv.jpg"
+                  alt="logo DopamineTV PC"
+                  class="w-12 h-12 rounded-xl object-cover shadow-md transition-transform duration-300 group-hover:scale-105"
                 />
-              </svg>
-              <!-- Teks tombol yang ikut loncat-loncat saat kursor diarahkan -->
-              <span class="group-hover/btn:animate-bounce inline-block"
-                >Download APK</span
+                <!-- GANTI VERSI: Tulis versi aplikasinya di sini (contoh: v1.2 Premium) -->
+                <span
+                  class="bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-green-500/30"
+                  >v1.0.6 Trial-30D</span
+                >
+              </div>
+
+              <!-- GANTI NAMA APLIKASI: Tulis nama aplikasinya di sini -->
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">
+                DopamineTV PC
+              </h3>
+
+              <!-- GANTI DETAIL UKURAN & OS / PLATFORM -->
+              <div
+                class="flex gap-2 text-xs font-medium text-slate-500 dark:text-slate-400"
               >
-            </a>
+                <span
+                  class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
+                  >Size: 10MB</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
+                  >Windows 10-x64</span
+                >
+              </div>
+            </div>
+
+            <!-- BAGIAN TOMBOL DOWNLOAD & EFEK LONCAT -->
+            <div
+              class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50"
+            >
+              <!-- GANTI LINK DOWNLOAD: Masukin link Safelinku lo di dalam tanda kutip href="..." -->
+              <a
+                href="https://sfl.gl/SJbUzcG"
+                target="_blank"
+                onclick="showToast('Menyiapkan file APK...')"
+                class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 dark:hover:bg-indigo-600 text-slate-700 dark:text-slate-200 hover:text-white font-medium py-2.5 rounded-xl transition-all duration-300 flex justify-center items-center gap-2 group/btn shadow-sm hover:shadow-indigo-500/30 hover:shadow-lg"
+              >
+                <!-- Ikon panah yang ikut loncat-loncat saat kursor diarahkan -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform group-hover/btn:animate-bounce"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  />
+                </svg>
+                <!-- Teks tombol yang ikut loncat-loncat saat kursor diarahkan -->
+                <span class="group-hover/btn:animate-bounce inline-block"
+                  >Download APK</span
+                >
+              </a>
+            </div>
           </div>
         </div>
         <!-- ================= END KARTU APLIKASI 1 ================= -->
