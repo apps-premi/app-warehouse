@@ -28,6 +28,10 @@
       html {
         scroll-behavior: smooth;
       }
+      .lang-loading {
+        opacity: 0;
+        visibility: hidden;
+      }
     </style>
     <!-- Script ini ditaruh di head biar gak ada efek kedip (FOUC) pas ganti tema -->
     <script>
@@ -43,7 +47,7 @@
     </script>
   </head>
   <body
-    class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-200 antialiased min-h-screen flex flex-col transition-colors duration-300"
+    class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-200 antialiased min-h-screen flex flex-col transition-all duration-300 lang-loading"
   >
     <!-- Navbar -->
     <nav

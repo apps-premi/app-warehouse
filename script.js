@@ -114,6 +114,7 @@ function changeLanguage(lang) {
   if (langDropdown) {
     langDropdown.classList.add("hidden");
   }
+  document.body.classList.remove("lang-loading");
 }
 
 // ==========================================
