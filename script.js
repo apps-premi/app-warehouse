@@ -29,7 +29,7 @@ const translations = {
       '&copy; 2026 Premium Apps. All rights reserved.<br /><span class="text-xs mt-2 block">Disclaimer: This website only shares third-party APK files for educational, testing, and review purposes. All copyrights and trademarks belong to their respective developers.</span>',
   },
   id: {
-    brand: "Aplikasi Premium Koleksi",
+    brand: "Aplikasi Premium",
     donate: "Dukung Saya",
     contact: "Kontak",
     heroTitle:
