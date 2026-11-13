@@ -33,7 +33,54 @@
         visibility: hidden;
       }
 
-      /* Efek Hover Khusus Ikon Sosmed (Jarak Lebih Jauh ke Bawah) */
+      /* =========================================
+         1. Hover Line Standar 
+         (Buat Premium Apps, Bahasa, Saklar Mode) 
+      ========================================= */
+      .hover-line {
+        position: relative;
+      }
+
+      /* 1. Liquid Glass untuk LIGHT MODE (Meluncur dari Kiri ke Kanan) */
+      .hover-line::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 4px;
+        bottom: -21px;
+        left: 0; /* <-- Diubah: nempel di ujung kiri */
+        /* transform: translateX(-50%); <-- Baris ini DIBUANG */
+
+        /* Efek Liquid Glass Terang */
+        background: rgba(99, 102, 241, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(99, 102, 241, 0.4);
+        box-shadow: 0 4px 8px rgba(99, 102, 241, 0.2);
+
+        opacity: 0;
+        transition:
+          width 0.3s ease-in-out,
+          opacity 0.3s ease-in-out;
+        border-radius: 10px;
+      }
+
+      .hover-line:hover::after {
+        width: 100%; /* <-- Melebar ke kanan sampai full */
+        opacity: 1;
+      }
+
+      /* 2. Liquid Glass untuk DARK MODE (Kaca Es / Frosty White) */
+      .dark .hover-line::after {
+        background: rgba(255, 255, 255, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      }
+
+      /* =========================================
+         2. Hover Line Khusus Ikon Sosmed 
+         (Jaraknya lebih turun biar pas) 
+      ========================================= */
       .hover-line-icon {
         position: relative;
       }
@@ -124,7 +171,7 @@
               class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition text-pink-500 shadow-inner flex items-center justify-center"
               title=""
             >
-              <span class="hover-line-icon relative inline-block">
+              <span class="hover-line relative inline-block">
                 <svg
                   class="w-5 h-5"
                   fill="none"
@@ -146,7 +193,7 @@
               class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition text-blue-500 shadow-inner flex items-center justify-center"
               title=""
             >
-              <span class="hover-line-icon relative inline-block">
+              <span class="hover-line relative inline-block">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
@@ -162,7 +209,7 @@
               class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition text-sky-400 shadow-inner flex items-center justify-center"
               title=""
             >
-              <span class="hover-line-icon relative inline-block">
+              <span class="hover-line relative inline-block">
                 <svg
                   class="w-5 h-5"
                   fill="none"
