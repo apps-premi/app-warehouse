@@ -289,6 +289,46 @@ document.querySelectorAll(".app-card").forEach((card) => {
 // ==========================================
 // 8. WIDGET JAM DIGITAL & TANGGAL MULTI-LANGUAGE
 // ==========================================
+const GRADIENT_JAM =
+  "bg-gradient-to-br from-slate-900 via-indigo-950 to-indigo-800 dark:from-white dark:via-slate-100 dark:to-indigo-200 bg-clip-text text-transparent";
+
+function animasikanDigit(slot, angkaBaru, extraClass = "") {
+  const angkaLama = slot.dataset.val;
+  if (angkaLama === angkaBaru) return;
+  slot.dataset.val = angkaBaru;
+
+  if (angkaLama === undefined) {
+    slot.innerHTML = `<span class="block leading-none ${extraClass}">${angkaBaru}</span>`;
+    return;
+  }
+
+  slot.innerHTML = `
+    <span class="old-digit block leading-none transition-all duration-300 ease-out translate-y-0 opacity-100 ${extraClass}">${angkaLama}</span>
+    <span class="new-digit block leading-none absolute inset-0 transition-all duration-300 ease-out translate-y-full opacity-0 ${extraClass}">${angkaBaru}</span>
+  `;
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const oldEl = slot.querySelector(".old-digit");
+      const newEl = slot.querySelector(".new-digit");
+      if (oldEl) {
+        oldEl.classList.remove("translate-y-0", "opacity-100");
+        oldEl.classList.add("-translate-y-full", "opacity-0");
+      }
+      if (newEl) {
+        newEl.classList.remove("translate-y-full", "opacity-0");
+        newEl.classList.add("translate-y-0", "opacity-100");
+      }
+    });
+  });
+
+  setTimeout(() => {
+    if (slot.dataset.val === angkaBaru) {
+      slot.innerHTML = `<span class="block leading-none ${extraClass}">${angkaBaru}</span>`;
+    }
+  }, 320);
+}
+
 function jalankanJam() {
   const waktu = new Date();
 
@@ -296,8 +336,44 @@ function jalankanJam() {
   const menit = String(waktu.getMinutes()).padStart(2, "0");
   const detik = String(waktu.getSeconds()).padStart(2, "0");
 
-  document.getElementById("jamMenit").innerText = `${jam}:${menit}`;
-  document.getElementById("detik").innerText = detik;
+  const jamMenitEl = document.getElementById("jamMenit");
+  const detikEl = document.getElementById("detik");
+
+  // Siapkan 4 slot digit (JJ:MM) sekali saja di awal
+  if (jamMenitEl && !jamMenitEl.dataset.ready) {
+    jamMenitEl.dataset.ready = "true";
+    jamMenitEl.className =
+      "text-6xl md:text-7xl tracking-tight inline-flex items-center tabular-nums";
+    jamMenitEl.innerHTML = `
+      <span class="digit-slot inline-block overflow-hidden relative h-[1.05em]"></span>
+      <span class="digit-slot inline-block overflow-hidden relative h-[1.05em]"></span>
+      <span class="inline-block leading-none mx-0.5 ${GRADIENT_JAM}">:</span>
+      <span class="digit-slot inline-block overflow-hidden relative h-[1.05em]"></span>
+      <span class="digit-slot inline-block overflow-hidden relative h-[1.05em]"></span>
+    `;
+  }
+
+  // Siapkan 2 slot digit (DD) sekali saja di awal
+  if (detikEl && !detikEl.dataset.ready) {
+    detikEl.dataset.ready = "true";
+    detikEl.className =
+      "text-2xl md:text-3xl text-indigo-500 dark:text-indigo-400 font-semibold mb-1 inline-flex items-center tabular-nums";
+    detikEl.innerHTML = `
+      <span class="digit-slot inline-block overflow-hidden relative h-[1.05em]"></span>
+      <span class="digit-slot inline-block overflow-hidden relative h-[1.05em]"></span>
+    `;
+  }
+
+  // Update & gulirkan tiap digit yang berubah
+  const digitsJM = [jam[0], jam[1], menit[0], menit[1]];
+  jamMenitEl?.querySelectorAll(".digit-slot").forEach((slot, i) => {
+    animasikanDigit(slot, digitsJM[i], GRADIENT_JAM);
+  });
+
+  const digitsDetik = [detik[0], detik[1]];
+  detikEl?.querySelectorAll(".digit-slot").forEach((slot, i) => {
+    animasikanDigit(slot, digitsDetik[i]);
+  });
 
   // Deteksi bahasa aktif
   const currentLang = document.documentElement.lang || "en";
