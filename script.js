@@ -141,7 +141,7 @@ window.addEventListener("click", () => {
 });
 
 // ==========================================
-// 4. TEKS BERGILIR OTOMATIS (5 DETIK)
+// 4. TEKS BERGILIR OTOMATIS (BARENGAN 4 DETIK)
 // ==========================================
 const appsListText = [
   "YouTube",
@@ -151,17 +151,62 @@ const appsListText = [
   "Telegram",
   "Twitter",
 ];
-let appTextIndex = 0;
-const dynamicTextEl = document.getElementById("dynamicText");
+const greetings = [
+  "Halo",
+  "Hello",
+  "こんにちは",
+  "안녕하세요",
+  "Bonjour",
+  "Hola",
+  "Ciao",
+  "Hallo",
+  "你好",
+  "مرحبا",
+  "Olá",
+  "Привет",
+  "नमस्ते",
+  "สวัสดี",
+  "Xin chào",
+];
 
-setInterval(() => {
-  dynamicTextEl.style.opacity = "0";
-  setTimeout(() => {
-    appTextIndex = (appTextIndex + 1) % appsListText.length;
-    dynamicTextEl.innerText = appsListText[appTextIndex];
-    dynamicTextEl.style.opacity = "1";
-  }, 500);
-}, 5000);
+let appTextIndex = 0;
+let helloIndex = 0;
+const dynamicTextEl = document.getElementById("dynamicText");
+const helloEl = document.getElementById("iosHello");
+
+if (dynamicTextEl || helloEl) {
+  setInterval(() => {
+    // Hilang perlahan ke atas barengan
+    [dynamicTextEl, helloEl].forEach((el) => {
+      if (!el) return;
+      el.classList.remove("opacity-100", "translate-y-0");
+      el.classList.add("opacity-0", "-translate-y-3");
+    });
+
+    setTimeout(() => {
+      // Ganti teks kedua elemen secara bersamaan
+      if (dynamicTextEl) {
+        appTextIndex = (appTextIndex + 1) % appsListText.length;
+        dynamicTextEl.innerText = appsListText[appTextIndex];
+      }
+      if (helloEl) {
+        helloIndex = (helloIndex + 1) % greetings.length;
+        helloEl.textContent = greetings[helloIndex];
+      }
+
+      // Siapin posisi dari bawah & muncul barengan
+      [dynamicTextEl, helloEl].forEach((el) => {
+        if (!el) return;
+        el.classList.remove("-translate-y-3");
+        el.classList.add("translate-y-3");
+        void el.offsetWidth;
+
+        el.classList.remove("opacity-0", "translate-y-3");
+        el.classList.add("opacity-100", "translate-y-0");
+      });
+    }, 650);
+  }, 4000);
+}
 
 // ==========================================
 // 5. DARK MODE TOGGLE (DENGAN LOCALSTORAGE MEMORY)
