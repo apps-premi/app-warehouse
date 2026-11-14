@@ -12,3 +12,17 @@ html {
   opacity: 0;
   visibility: hidden;
 }
+
+/* Paksa elemen beranimasi diproses langsung oleh GPU */
+.animate-smooth-glow,
+.digit-slot span,
+#dynamicText {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimasi render area kartu aplikasi di bawah layar */
+main {
+  contain: layout style;
+}
