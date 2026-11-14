@@ -1,10 +1,149 @@
 /* ==========================================================================
-   MAIN JAVASCRIPT FILE (v1.0)
+   MAIN JAVASCRIPT FILE (v2.0 - Dynamic Cards)
    Project: APK Gallery Website
    File: script.js
-   Description: Handles language switching, live clock, UI interactions, 
-                and APK list rendering.
+   Description: Handles dynamic APK cards, language switching, live clock, 
+                and UI interactions.
    ========================================================================== */
+
+// ==========================================
+// 0. DATA KOLEKSI APLIKASI (EDIT / TAMBAH APK DI SINI)
+// ==========================================
+const daftarAplikasi = [
+  {
+    nama: "DopamineTV PC",
+    versi: "v1.0.6 Trial-30D",
+    size: "10MB",
+    os: "Windows 10-x64",
+    gambar: "dopaminetv.jpg",
+    link: "https://sfl.gl/SJbUzcG",
+  },
+  {
+    nama: "DopamineTV",
+    versi: "v1.0.8 Build 12-Try",
+    size: "10MB",
+    os: "Android 6.0+",
+    gambar: "dopaminetv.jpg",
+    link: "https://sfl.gl/d1J7",
+  },
+  {
+    nama: "KltraTV Hikari",
+    versi: "v3.1.1 Pro",
+    size: "15MB",
+    os: "Android 6.0+",
+    gambar: "kltratv.jpg",
+    link: "https://sfl.gl/f02go",
+  },
+  {
+    nama: "TivoraTV",
+    versi: "v1.2 Premium",
+    size: "25MB",
+    os: "Android 6.0+",
+    gambar: "tivoratv.jpg",
+    link: "https://sfl.gl/YFpxd",
+  },
+  {
+    nama: "YouTube Premium",
+    versi: "v21.30.216 Premium",
+    size: "290MB",
+    os: "Android 9.0+",
+    gambar: "youtube.jpg",
+    link: "https://sfl.gl/F10oT",
+  },
+];
+
+// CETAK OTOMATIS KE DALAM #appGrid (1 CETAKAN DESAIN KARTU 1)
+function renderApps() {
+  const appGrid = document.getElementById("appGrid");
+  if (!appGrid) return;
+
+  const cardsHTML = daftarAplikasi
+    .map(
+      (app) => `
+      <div
+        class="app-card group relative bg-white/40 dark:bg-[#0f172a]/40 backdrop-blur-md rounded-2xl border border-white/50 dark:border-white/10 shadow-lg shadow-slate-200/10 dark:shadow-black/20 overflow-hidden transition-transform duration-300 hover:scale-[1.02]"
+      >
+        <!-- LAYER CAHAYA GLOW HALUS & DENYUT PELAN -->
+        <div
+          class="absolute -inset-1 z-0 bg-gradient-to-r from-indigo-500/40 via-purple-500/40 to-cyan-500/40 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 group-hover:animate-smooth-glow transition-all duration-1000 pointer-events-none"
+        ></div>
+
+        <!-- LAYER PENUTUP TENGAH KARTU -->
+        <div
+          class="relative z-10 bg-white/80 dark:bg-[#0f172a]/85 h-full w-full rounded-[14px] flex flex-col overflow-hidden"
+        >
+          <!-- BAGIAN ATAS KARTU (Logo, Judul, Size) -->
+          <div class="p-5 flex-grow">
+            <div class="flex items-start justify-between mb-3">
+              <img
+                src="${app.gambar}"
+                alt="logo ${app.nama}"
+                loading="lazy"
+                decoding="async"
+                class="w-12 h-12 rounded-xl object-cover shadow-md transition-transform duration-300 group-hover:scale-105"
+              />
+              <span
+                class="bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-green-500/30"
+              >${app.versi}</span>
+            </div>
+
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">
+              ${app.nama}
+            </h3>
+
+            <div
+              class="flex gap-2 text-xs font-medium text-slate-500 dark:text-slate-400"
+            >
+              <span class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
+                >Size: ${app.size}</span
+              >
+              <span class="bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md"
+                >${app.os}</span
+              >
+            </div>
+          </div>
+
+          <!-- BAGIAN TOMBOL DOWNLOAD & EFEK LONCAT -->
+          <div
+            class="p-4 border-t border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/50"
+          >
+            <a
+              href="${app.link}"
+              target="_blank"
+              onclick="showToast('Menyiapkan file APK...')"
+              class="dl-btn w-full bg-slate-200 hover:bg-indigo-600 dark:bg-slate-700 dark:hover:bg-indigo-600 text-slate-700 dark:text-slate-200 hover:text-white font-medium py-2.5 rounded-xl transition-all duration-300 flex justify-center items-center gap-2 group/btn shadow-sm hover:shadow-indigo-500/30 hover:shadow-lg"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 transition-transform group-hover/btn:animate-bounce"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              <span class="group-hover/btn:animate-bounce inline-block"
+                >Download APK</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    `,
+    )
+    .join("");
+
+  // Sisipkan kartu tepat di bawah #noResult
+  appGrid.insertAdjacentHTML("beforeend", cardsHTML);
+}
+
+// Render semua kartu lebih dulu sebelum fitur bahasa, search, & observer berjalan
+renderApps();
 
 // ==========================================
 // 1. DATA TERJEMAHAN BAHASA
@@ -54,7 +193,6 @@ const translations = {
 function changeLanguage(lang) {
   localStorage.language = lang;
 
-  // Update Teks Standar
   document.getElementById("notAvailableText").innerText =
     translations[lang].notAvailable;
   document.getElementById("notAvailableDesc").innerText =
@@ -66,13 +204,11 @@ function changeLanguage(lang) {
   document.getElementById("searchInput").placeholder =
     translations[lang].searchPlaceholder;
 
-  // (Penting: Ganti explore jadi exploreText untuk menyesuaikan tombol kapsul animasi)
   if (document.getElementById("exploreText")) {
     document.getElementById("exploreText").innerText =
       translations[lang].explore;
   }
 
-  // (Penting: Ganti donate jadi donateText)
   if (document.getElementById("donateText")) {
     document.getElementById("donateText").innerText = translations[lang].donate;
   }
@@ -81,7 +217,6 @@ function changeLanguage(lang) {
   document.getElementById("footerText").innerHTML =
     translations[lang].footerText;
 
-  // Update Teks Tombol Download di Kartu APK
   document.querySelectorAll(".dl-btn").forEach((btn) => {
     const icon = btn.querySelector("svg").outerHTML;
     btn.innerHTML =
@@ -89,7 +224,6 @@ function changeLanguage(lang) {
       ` <span class="group-hover/btn:animate-bounce inline-block">${translations[lang].downloadBtn}</span>`;
   });
 
-  // Update Tampilan Tombol Pilih Bahasa di Dropdown
   const enEl = document.getElementById("btnEn");
   const idEl = document.getElementById("btnId");
 
@@ -109,7 +243,6 @@ function changeLanguage(lang) {
     document.getElementById("checkEn").classList.add("hidden");
   }
 
-  // Tutup dropdown setelah memilih bahasa
   const langDropdown = document.getElementById("langDropdown");
   if (langDropdown) {
     langDropdown.classList.add("hidden");
@@ -124,16 +257,13 @@ const langBtn = document.getElementById("langBtn");
 const langDropdown = document.getElementById("langDropdown");
 const savedLang = localStorage.language || "en";
 
-// Inisialisasi bahasa pertama kali
 changeLanguage(savedLang);
 
-// Listener Klik Tombol Bahasa
 langBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   langDropdown.classList.toggle("hidden");
 });
 
-// Listener Klik di Luar Menu (Untuk Menutup Dropdown)
 window.addEventListener("click", () => {
   if (!langDropdown.classList.contains("hidden")) {
     langDropdown.classList.add("hidden");
@@ -176,7 +306,6 @@ const helloEl = document.getElementById("iosHello");
 
 if (dynamicTextEl || helloEl) {
   setInterval(() => {
-    // Hilang perlahan ke atas barengan
     [dynamicTextEl, helloEl].forEach((el) => {
       if (!el) return;
       el.classList.remove("opacity-100", "translate-y-0");
@@ -184,7 +313,6 @@ if (dynamicTextEl || helloEl) {
     });
 
     setTimeout(() => {
-      // Ganti teks kedua elemen secara bersamaan
       if (dynamicTextEl) {
         appTextIndex = (appTextIndex + 1) % appsListText.length;
         dynamicTextEl.innerText = appsListText[appTextIndex];
@@ -194,7 +322,6 @@ if (dynamicTextEl || helloEl) {
         helloEl.textContent = greetings[helloIndex];
       }
 
-      // Siapin posisi dari bawah & muncul barengan
       [dynamicTextEl, helloEl].forEach((el) => {
         if (!el) return;
         el.classList.remove("-translate-y-3");
@@ -214,7 +341,6 @@ if (dynamicTextEl || helloEl) {
 const themeToggle = document.getElementById("themeToggle");
 const htmlElement = document.documentElement;
 
-// Saat tombol diklik: Ganti tema dan simpan ke memori
 themeToggle.addEventListener("click", () => {
   if (htmlElement.classList.contains("dark")) {
     htmlElement.classList.remove("dark");
@@ -239,21 +365,18 @@ searchInput.addEventListener("input", (e) => {
   appCards.forEach((card) => {
     const text = card.innerText.toLowerCase();
     if (text.includes(term)) {
-      card.style.display = "flex";
+      card.style.display = "block";
       visibleCount++;
     } else {
       card.style.display = "none";
     }
   });
 
-  // Logika memunculkan teks "Not Available" sekaligus auto-translate
   if (visibleCount === 0) {
     noResultEl.classList.remove("hidden");
 
-    // Ambil bahasa yang lagi aktif
     const currentLang = document.documentElement.lang || "en";
 
-    // Paksa text berubah sesuai bahasa
     document.getElementById("notAvailableText").innerText =
       translations[currentLang].notAvailable;
     document.getElementById("notAvailableDesc").innerText =
@@ -273,10 +396,8 @@ const scrollObserverOptions = {
 const scrollObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      // Munculkan kartu (hapus transparan)
       entry.target.classList.remove("opacity-0", "translate-y-6");
     } else {
-      // Sembunyikan lagi (bikin transparan) saat di-scroll ke luar layar
       entry.target.classList.add("opacity-0", "translate-y-6");
     }
   });
@@ -339,7 +460,6 @@ function jalankanJam() {
   const jamMenitEl = document.getElementById("jamMenit");
   const detikEl = document.getElementById("detik");
 
-  // Siapkan 4 slot digit (JJ:MM) sekali saja di awal
   if (jamMenitEl && !jamMenitEl.dataset.ready) {
     jamMenitEl.dataset.ready = "true";
     jamMenitEl.className =
@@ -353,7 +473,6 @@ function jalankanJam() {
     `;
   }
 
-  // Siapkan 2 slot digit (DD) sekali saja di awal
   if (detikEl && !detikEl.dataset.ready) {
     detikEl.dataset.ready = "true";
     detikEl.className =
@@ -364,7 +483,6 @@ function jalankanJam() {
     `;
   }
 
-  // Update & gulirkan tiap digit yang berubah
   const digitsJM = [jam[0], jam[1], menit[0], menit[1]];
   jamMenitEl?.querySelectorAll(".digit-slot").forEach((slot, i) => {
     animasikanDigit(slot, digitsJM[i], GRADIENT_JAM);
@@ -375,7 +493,6 @@ function jalankanJam() {
     animasikanDigit(slot, digitsDetik[i]);
   });
 
-  // Deteksi bahasa aktif
   const currentLang = document.documentElement.lang || "en";
 
   let namaHari, namaBulan;
@@ -431,7 +548,6 @@ function jalankanJam() {
     `${hari}, ${tanggal} ${bulan} ${tahun}`;
 }
 
-// Jalankan jam pertama kali, lalu update setiap detik
 jalankanJam();
 setInterval(jalankanJam, 1000);
 
