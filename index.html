@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1280" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Premium Apps</title>
     <link rel="icon" type="image/png" href="favicon.png" />
     <!-- Tailwind CSS -->
@@ -283,112 +283,120 @@
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-600/20 rounded-full blur-[100px] -z-10"
       ></div>
 
-      <!-- Judul Baru (Premium Apps / Collections) -->
-      <h1
-        id="heroTitle"
-        class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight"
+      <!-- Container Sejajar: Jam Digital (Kiri) & Judul Hero (Kanan) -->
+      <div
+        class="relative z-10 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12"
       >
-        Premium Apps <br />
-        <span class="text-indigo-500 dark:text-indigo-400">Collections</span>
-      </h1>
-      <p
-        id="heroDesc"
-        class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10"
-      >
-        Curated collection of VIP and premium apps. Secure, clean, and updated
-        daily for all your Android devices and PC.
-      </p>
-
-      <!-- Tombol Aksi (Explore & Support Me dengan Animasi Bounce Pelan/Halus) -->
-      <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
-        <!-- Tombol Explore All Apps -->
-        <a
-          href="javascript:void(0);"
-          onclick="scrollToApps()"
-          id="exploreBtn"
-          class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/30"
+        <!-- KIRI: WIDGET JAM DIGITAL ALA IOS -->
+        <div
+          class="w-full lg:w-auto flex justify-center lg:justify-start shrink-0"
         >
-          <span
-            id="exploreText"
-            class="animate-bounce inline-block"
-            style="animation-duration: 2s"
-            >Explore All Apps</span
+          <div
+            class="flex flex-col items-start pl-4 border-l-4 border-indigo-500 text-left"
           >
-          <svg
-            class="w-5 h-5 animate-bounce"
-            style="animation-duration: 2s"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            ></path>
-          </svg>
-        </a>
+            <div
+              class="font-sans font-bold text-slate-900 dark:text-white flex items-baseline gap-1.5"
+            >
+              <span id="jamMenit" class="text-6xl md:text-7xl tracking-tight"
+                >00:00</span
+              >
+              <span
+                id="detik"
+                class="text-2xl md:text-3xl text-indigo-500 dark:text-indigo-400 font-semibold mb-1"
+                >00</span
+              >
+            </div>
+            <div
+              id="tanggalan"
+              class="text-sm md:text-base font-semibold text-slate-500 dark:text-slate-400 tracking-wider uppercase mt-1"
+            >
+              LOADING...
+            </div>
+          </div>
+        </div>
 
-        <!-- Tombol Support Me -->
-        <a
-          href="https://saweria.co/kyyshee"
-          target="_blank"
-          id="donateBtn"
-          class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-500/25 transition-all duration-300 transform hover:-translate-y-1 gap-2"
-        >
-          <svg
-            class="w-5 h-5 animate-bounce text-pink-400"
-            style="animation-duration: 2s"
-            fill="currentColor"
-            viewBox="0 0 24 24"
+        <!-- KANAN: JUDUL HERO & TOMBOL AKSI (DIGESER KE KANAN) -->
+        <div class="w-full lg:max-w-xl text-center">
+          <h1
+            id="heroTitle"
+            class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight"
           >
-            <path
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-            />
-          </svg>
-          <span
-            id="donateText"
-            class="animate-bounce inline-block"
-            style="animation-duration: 2s"
-            >Support Me</span
+            Premium Apps <br />
+            <span class="text-indigo-500 dark:text-indigo-400"
+              >Collections</span
+            >
+          </h1>
+          <p
+            id="heroDesc"
+            class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8"
           >
-        </a>
+            Curated collection of VIP and premium apps. Secure, clean, and
+            updated daily for all your Android devices and PC.
+          </p>
+
+          <!-- Tombol Aksi -->
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="javascript:void(0);"
+              onclick="scrollToApps()"
+              id="exploreBtn"
+              class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/30 gap-2"
+            >
+              <span
+                id="exploreText"
+                class="animate-bounce inline-block"
+                style="animation-duration: 2s"
+                >Explore All Apps</span
+              >
+              <svg
+                class="w-5 h-5 animate-bounce"
+                style="animation-duration: 2s"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                ></path>
+              </svg>
+            </a>
+
+            <a
+              href="https://saweria.co/kyyshee"
+              target="_blank"
+              id="donateBtn"
+              class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-500/25 transition-all duration-300 transform hover:-translate-y-1 gap-2"
+            >
+              <svg
+                class="w-5 h-5 animate-bounce text-pink-400"
+                style="animation-duration: 2s"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                />
+              </svg>
+              <span
+                id="donateText"
+                class="animate-bounce inline-block"
+                style="animation-duration: 2s"
+                >Support Me</span
+              >
+            </a>
+          </div>
+        </div>
       </div>
     </header>
 
     <!-- Main Content (APK List & Search Bar) -->
     <main
       id="apk-list"
-      class="scroll-mt-28 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full"
+      class="scroll-mt-28 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 w-full"
     >
-      <!-- WIDGET JAM DIGITAL ALA IOS (DENGAN GARIS VERTIKAL) -->
-      <div
-        class="flex flex-col items-start w-full mb-6 mt-4 pl-4 border-l-4 border-indigo-500"
-      >
-        <div
-          class="font-sans font-bold text-slate-900 dark:text-white flex items-baseline gap-1.5"
-        >
-          <!-- Jam dan Menit (Dinaikin dikit ukurannya) -->
-          <span id="jamMenit" class="text-6xl md:text-7xl tracking-tight"
-            >00:00</span
-          >
-          <!-- Detik -->
-          <span
-            id="detik"
-            class="text-2xl md:text-3xl text-indigo-500 dark:text-indigo-400 font-semibold mb-1"
-            >00</span
-          >
-        </div>
-        <!-- Tanggal, Bulan, Tahun (Dibuat otomatis ikut bahasa) -->
-        <div
-          id="tanggalan"
-          class="text-sm md:text-base font-semibold text-slate-500 dark:text-slate-400 tracking-wider uppercase mt-1"
-        >
-          LOADING...
-        </div>
-      </div>
-
       <!-- Bagian Header List dan Search Bar -->
       <div
         class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6"
